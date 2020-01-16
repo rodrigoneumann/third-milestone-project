@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+}
+
+main {
+    margin-top: 4rem;
+    flex: 1 0 auto;
+}
+
+.navbar-color {
+    background-color: #fffffff7;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.navbar-logo {
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 3rem 3rem 0 3rem;
+}
+
+.index-banner {
+    width: 100%;
+    height: 300px;
+    background-image: url('https://i.ibb.co/SVCMkcL/main-banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-buy {
+    margin: 1rem auto;
+}
+
+.carousel-rent {
+    margin: 0 auto 1rem auto;
+}
+
+.social-buttons {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.footer-color {
+    background-color: #fffffff7;
+    box-shadow: 0 -8px 6px -6px black;
+}
+
+.footer-copyright {
+    padding: 0 0 0.5rem 0;
+}
+
+/* -----------------------------------
+    MEDIA QUERY
+-------------------------------------- */
+
+/* Mobile screen under 359px */
+@media (max-width: 359px) {
+}
+
+@media (min-width: 575px) {
+    main {
+        margin-top: 6rem;
+    }
+    .navbar-logo {
+        padding: 5rem 5rem 0 5rem;
+    }
+}
+
+@media (min-width: 694px) {
+
+}
+
+@media (min-width: 1200px) {
+    .navbar-logo {
+        padding: 5.5rem 5.5rem 0 5.5rem;
+    }
+}
+
+@media (min-width: 1328px) {
+
+}
+
+@media (min-width: 1550px) {
+
+}
