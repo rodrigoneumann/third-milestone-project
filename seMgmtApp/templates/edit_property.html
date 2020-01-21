@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid col-11 col-md-8 col-lg-6 col-xl-5 add-property-container">
+    <div class="row add-title mb-3">
+        <h4>EDIT PROPERTY</h4>
+    </div>
+    <div class="row mx-auto px-2 form-property">
+        <form>
+            <!-- Property Type -->
+            <div class="input-group my-3">
+                <select class="custom-select" id="">
+                    <option selected>Property Type</option>
+                    <option value="1" active>House</option>
+                    <option value="2">Apartment</option>
+                    <option value="3">Other</option>
+                </select>
+            </div>
+            <!-- Beds -->
+            <div class="input-group mb-3">
+                <select class="custom-select" id="">
+                    <option selected>Beds</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+            </div>
+            <!-- Baths -->
+            <div class="input-group mb-3">
+                <select class="custom-select" id="">
+                    <option selected>Baths</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+            </div>
+            <!-- Address -->
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <!-- District -->
+            <div class="input-group mb-3">
+                <select class="custom-select" id="inputDistrict">
+                    <option>District</option>
+                    <option value="portsmouth">Portsmouth</option>
+                    <option value="havant">Havant</option>
+                    <option value="fareham">Fareham</option>
+                    <option value="gosport">Gosport</option>
+                    <option value="eastleigh">Eastleigh</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <!-- City -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputCity" placeholder="City">
+                </div>
+                <!-- ZIPCODE -->
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputZip" placeholder="Zipcode">
+                </div>
+            </div>
+            <!-- Description -->
+            <div class="form-group">
+                <textarea class="form-control" rows="7" id="description" placeholder="Description"></textarea>
+            </div>
+            <!-- Image -->
+            <div class="form-group">
+                <p>Please add a link to the photo of the property</p>
+                <input id="imgUrl" name="imgUrl" class="form-control" type="url" maxlength="150"
+                    placeholder="https://...">
+            </div>
+            <div class="edit-delete-buttons">
+                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Edit</button>
+                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

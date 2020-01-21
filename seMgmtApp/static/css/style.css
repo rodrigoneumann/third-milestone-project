@@ -9,13 +9,14 @@ body {
 }
 
 main {
+    display: flex;
     margin-top: 4rem;
     flex: 1 0 auto;
 }
 
 .navbar-color {
     background-color: #fffffff7;
-    box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .navbar-logo {
@@ -28,7 +29,7 @@ main {
 .index-banner {
     width: 100%;
     height: 300px;
-    background-image: url('https://i.ibb.co/SVCMkcL/main-banner.png');
+    background-image: url('../img/main_banner.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -45,13 +46,82 @@ main {
     margin: 1rem 0 0.5rem 0;
 }
 
-.footer-color {
+.footer-main {
     background-color: #fffffff7;
     box-shadow: 0 -8px 6px -6px black;
+    padding: 0.1rem 0 0 0;
 }
 
 .footer-copyright {
     padding: 0 0 0.5rem 0;
+}
+
+.btn-block+.btn-block {
+    margin-top: 0;
+}
+/* REGISTER */
+
+.add-title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #343a40;
+    height: 5rem;
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+
+.add-title > h4 {
+    margin-bottom: 0;
+}
+
+.register-container,
+.login-container {
+    align-items: center;
+    justify-content: center;
+    background-color: #fffffff7;
+    margin: 4rem auto
+}
+
+.register-form,
+.login-form {
+    padding: 1rem 0;
+}
+
+.add-property-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    background-color: #fffffff7;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.form-property {
+    align-items: center;
+    justify-content: center;
+}
+
+.rent-buy-buttons,
+.edit-delete-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-property-button {
+    display: flex;
+    align-content: flex-end;
+}
+
+.button-buy {
+    width: 100%;
+    background-color: blue;
+}
+
+.button-rent {
+    width: 100%;
+    background-color: red;
 }
 
 /* -----------------------------------
@@ -76,6 +146,10 @@ main {
 }
 
 @media (min-width: 1200px) {
+    main {
+        margin-top: 6.5rem;
+    }
+
     .navbar-logo {
         padding: 5.5rem 5.5rem 0 5.5rem;
     }
