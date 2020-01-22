@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from seMgmtApp import app
+from flask_pymongo import pymongo
+from seMgmtApp.config import Config
 
 @app.route("/")
 def index():

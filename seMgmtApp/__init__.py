@@ -13,4 +13,9 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info' """
 
+def insert_category():
+    category_doc = {'category_name'}
+    mongo.db.categories.insert_one(category_doc)
+insert_category()
+
 from seMgmtApp import routes
