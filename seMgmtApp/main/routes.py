@@ -1,7 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Blueprint
 from seMgmtApp import app
 from flask_pymongo import pymongo
 from seMgmtApp.config import Config
+
+main = Blueprint("main", __name__)
 
 @app.route("/")
 def index():
@@ -15,10 +17,3 @@ def register():
 def login():
     return render_template("login.html")
 
-@app.route("/add_property")
-def add_property():
-    return render_template("add_property.html")
-
-@app.route("/edit_property")
-def edit_property():
-    return render_template("edit_property.html")
