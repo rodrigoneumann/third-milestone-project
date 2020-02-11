@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% set args = request.args.get %}
+
+<section class="col-12">
+    <div class="container">
+        <div class="row">
+            <div class="input-group my-3">
+                    <select class="custom-select sort_by" id="sort_by" name="sort_by" aria-label="Sort By">
+                        <option value="" disabled selected>Sort By </option>
+                        <option value="all">All</option>
+                        <option value="for_sale">For Sale</option>
+                        <option value="for_rent">For Rent</option>
+                    </select>
+            </div>
+
+        {% for property in all %}
+        {% include "partials/cards.html" %}
+        {% endfor %}      
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="pagination-a">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <span class="ion-ios-arrow-back"></span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item next">
+                            <a class="page-link" href="#">
+                                <span class="ion-ios-arrow-forward"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

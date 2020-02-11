@@ -12,8 +12,8 @@
             <!-- Category RENT OR BUY -->
             <ul class="nav nav-tabs justify-content-center mb-2">
                 <li class="nav-item">
-                    <a class="nav-link active" id="toBuy-tab" data-toggle="tab" role="tab" aria-controls="to buy"
-                        aria-selected="true">For Sale</a>
+                    <a class="nav-link toBuy-tab active" id="toBuy-tab" data-toggle="tab" role="tab"
+                        aria-controls="to buy" aria-selected="true">For Sale</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="toRent-tab" data-toggle="tab" role="tab" aria-controls="to rent"
@@ -53,7 +53,8 @@
                 <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio or floor number">
+                <input type="text" class="form-control" id="address2" name="address2"
+                    placeholder="Apartment, studio or floor number">
             </div>
             <!-- District -->
             <div class="input-group mb-3">
@@ -76,15 +77,26 @@
             </div>
             <!-- Description -->
             <div class="form-group">
-                <textarea class="form-control" rows="7" id="description" name="description" placeholder="Description"></textarea>
+                <textarea class="form-control" rows="7" id="description" name="description"
+                    placeholder="Description" required></textarea>
             </div>
             <!-- Image -->
             <div class="form-group">
-                <p>Please add a link to the photo of the property</p>
+                <p>Please add a link to the photo of the property - Optional</p>
                 <input id="imgUrl" name="imgUrl" class="form-control" type="url" maxlength="150"
-                    placeholder="https://..." required>
+                    placeholder="https://...">
             </div>
-
+            <!-- Price -->
+            <div class="form-group for-sale-div required">
+                <p>Please inform the price for sale</p>
+                <input type="number" min="1" step="any" name="sale_price"
+                    placeholder="£">
+            </div>
+            <div class="form-group for-rent-div required">
+                <p>Please inform the monthly rent price</p>
+                <input type="number" min="1" step="any" name="rent_price"
+                    placeholder="£">
+            </div>
             <!-- Add Property button -->
             <div class="add-property-button">
                 <button type="submit" class="btn btn-dark ml-auto mb-3">Add Property</button>

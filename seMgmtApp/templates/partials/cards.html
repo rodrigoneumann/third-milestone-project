@@ -1,0 +1,44 @@
+<div class="col-md-6 col-lg-4">
+    <div class="card-box">
+        <div class="card-img">
+            {% if property.imgUrl %}
+            <img src="{{ property.imgUrl }}" class="img-fluid property-img" alt="Property Image"
+                lazyload="on">
+            {% else %}
+            <img src="{{ url_for('static', filename='img/no-image.png') }}" class="img-fluid property-img"
+                alt="Property Image" lazyload="on">
+            {% endif %}
+        </div>
+        <div class="card-description-box">
+            <div class="row card-address-box">
+                <span>{{ property.address }}</span>
+            </div>
+            <div class="row card-price-box">
+                <span class="card-type">
+                    {% if property.rent_price != null %}
+                    For Rent -
+                    {% else %}
+                    For Sale -
+                    {% endif %}
+                </span>
+                <span class="card-price">
+                    {% if property.rent_price != null %}
+                    £{{ property.rent_price }} pcm
+                    {% else %}
+                    £{{ property.sale_price }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="container card-footer-box">
+                <div class="row card-bed-box">
+                    <i class="fas fa-bed bed-icon"></i>
+                    <div class="bed-info">{{property.num_bed}}</div>
+                </div>
+                <div class="row card-bath-box">
+                    <i class="fas fa-bath bath-icon"></i>
+                    <div class="bath-info">{{property.num_bath}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
