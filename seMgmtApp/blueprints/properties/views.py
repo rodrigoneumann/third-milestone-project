@@ -40,16 +40,25 @@ def edit_property():
                            num_bath=num_baths_list,
                            districts=districts_list)
 
+
 @properties.route("/properties_listing", methods=["GET", "POST"])
 def list_properties():
-    all = properties_collection.find( { "address": {"$exists":True } } )
 
-    if request.method == "GET":
-        sort_by_selector = request.form.get('.sort_by')
-    for_sale = properties_collection.find( { "$and": [{"for_sale" : {"$ne": "" }}, {"for_sale" : {"$exists": True }}]})
-    for_rent = properties_collection.find( { "address": {"$exists":True } , "for_rent" : {"$ne" : "null" } } )
+    # value of selection , sale, rent or all in searching dropdown
+    sort_by_selector = request.args.get('search')
+
+    #MongoDB Queries for Sale, Rent or All 
+    for_sale = properties_collection.find( { "sale_price" : { "$gt" : "1" } } )
+    for_rent = properties_collection.find( { "rent_price" : { "$gt" : "1" } } )
+    all_properties = properties_collection.find( { "$or" : [ { "sale_price" : { "$gt" : "1" } }, { "rent_price" : { "$gt" : "1" } } ] } )
+
+    # Sort_by_selector variable is set by dropdown in properties_listing.html template
+    if sort_by_selector is None or sort_by_selector == "all_properties":
+        sort_by_selector = all_properties
+    if sort_by_selector == "for_rent":
+        sort_by_selector = for_rent
+    if sort_by_selector == "for_sale":
+        sort_by_selector = for_sale
+
     return render_template("properties_listing.html",
-                           all=all,
-                           sort_by_selector=sort_by_selector,
-                           for_sale=for_sale,
-                           for_rent=for_rent)
+                           sort_by_selector=sort_by_selector)

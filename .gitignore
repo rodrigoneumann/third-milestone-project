@@ -1,3 +1,8 @@
 venv
 .vscode
 __pycache__
+.flaskenv
+.env
+/seMgmtApp/config.py
+
+.gitignore

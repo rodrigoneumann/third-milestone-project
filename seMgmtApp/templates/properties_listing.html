@@ -2,23 +2,23 @@
 
 {% block content %}
 
-{% set args = request.args.get %}
 
 <section class="col-12">
     <div class="container">
         <div class="row">
-            <div class="input-group my-3">
-                    <select class="custom-select sort_by" id="sort_by" name="sort_by" aria-label="Sort By">
-                        <option value="" disabled selected>Sort By </option>
-                        <option value="all">All</option>
-                        <option value="for_sale">For Sale</option>
-                        <option value="for_rent">For Rent</option>
-                    </select>
+            <div class="input-group my-4">
+                <select class="custom-select col-md-4 ml-auto " id="sort_by" name="sort_by" aria-label="Sort By">
+                    <option value="" disabled selected>Sort By </option>
+                    <option value="all_properties">All</option>
+                    <option value="for_sale">For Sale</option>
+                    <option value="for_rent">For Rent</option>
+                </select>
             </div>
-
-        {% for property in all %}
-        {% include "partials/cards.html" %}
-        {% endfor %}      
+            <div class="row col-12 mx-auto px-0 px-md-auto">
+                {% for property in sort_by_selector %}
+                {% include "partials/cards.html" %}
+                {% endfor %}
+            </div>
 
         </div>
         <div class="row">
@@ -50,6 +50,5 @@
         </div>
     </div>
 </section>
-
 
 {% endblock %}
