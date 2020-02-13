@@ -1,8 +1,7 @@
 venv
 .vscode
-__pycache__
+__pycache__/
 .flaskenv
 .env
-/seMgmtApp/config.py
 
-.gitignore
+Pipfile
