@@ -75,12 +75,15 @@ ul {
 
 /* REGISTER */
 
-.add-title {
+.add-title, 
+.login-title,
+.register-title {
     display: flex;
     align-content: center;
     justify-content: center;
+    font-size: 28px;
     background-color: #343a40;
-    height: 5rem;
+    height: 4rem;
     border-radius: 10px 10px 0 0;
     color: white;
 }
@@ -89,31 +92,38 @@ ul {
     margin-bottom: 0;
 }
 
-.register-container,
-.login-container {
-    align-items: center;
-    justify-content: center;
-    background-color: #fffffff7;
-    margin: 4rem auto
-}
-
 .register-form,
 .login-form {
     padding: 1rem 0;
 }
 
-.add-property-container {
+.add-property-container,
+.login-container,
+.register-container {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    margin: 2rem auto auto auto;
     background-color: #fffffff7;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.form-property {
+.form-property,
+.form-login {
     align-items: center;
     justify-content: center;
+}
+
+.user-icon {
+    font-size: 40px;
+    padding: 4px 8px 0 0;
+    color: #343a40;
+}
+
+.password-icon {
+    font-size: 35px;
+    padding: 4px 8px 0 0;
+    color: #343a40;
 }
 
 .rent-buy-buttons,
@@ -123,9 +133,11 @@ ul {
     justify-content: center;
 }
 
-.add-property-button {
+.add-property-button,
+.register-button,
+.login-button {
     display: flex;
-    align-content: flex-end;
+    justify-content: flex-end;
 }
 
 .button-buy {

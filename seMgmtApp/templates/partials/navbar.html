@@ -9,13 +9,18 @@
     <div class="collapse navbar-collapse text-right" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Link 2</a>
+                <a class="nav-link" href="{{ url_for('properties.list_properties') }}" >Properties</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Link 3</a>
+                <a class="nav-link" href="{{ url_for('reg_login.register') }}" >Create Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('reg_login.login') }}" >Login</a>
+            </li>
+
     </div>
 
 </nav>

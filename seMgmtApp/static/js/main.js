@@ -15,6 +15,6 @@ $(document).ready(function () {
     $('#sort_by').change(function () {
         let url = null
         const selection = this.options[this.selectedIndex].value
-        document.location.href = `/properties_listing?search=${selection}`
+        document.location.href = `/properties_list?search=${selection}`
     })
 });

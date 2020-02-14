@@ -2,23 +2,25 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row col-md-6 register-container">
-        <div class="col-md-8 register-form">
-            <h3>Create Account</h3>
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-        </div>
+<div class="container-fluid col-11 col-md-8 col-lg-6 col-xl-5 register-container">
+    <div class="row register-title">
+        <span>CREATE ACCOUNT</span>
+    </div>
+    <div class="container form-register px-4">
+        <form>
+            <div class="form-group d-flex mt-5">
+                <i class="fas fa-user-tie user-icon"></i>
+                <input type="text" class="form-control" id="register" name="address2" placeholder="Username" required>
+            </div>
+            <div class="form-group d-flex mt-4">
+                <i class="fas fa-key password-icon"></i>
+                <input type="password" class="form-control" id="password" name="address2" placeholder="Password"
+                    required>
+            </div>
+            <div class="register-button mt-1 mb-4">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt fa-sm"></i> Register</button>
+            </div>
+        </form>
     </div>
 </div>
 

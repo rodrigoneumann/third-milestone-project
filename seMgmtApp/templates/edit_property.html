@@ -9,15 +9,7 @@
     </div>
     <div class="row mx-auto px-2 mt-3 form-property">
         <form>
-            <!-- Property Type -->
-            <div class="input-group mb-3">
-                <select class="custom-select" id="property_type" name="property_type" required>
-                    <option value="" disabled selected>Property Type</option>
-                    {% for type in types %}
-                    <option value="{{ type }}">{{ type }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+
             <!-- Beds -->
             <div class="input-group mb-3">
                 <select class="custom-select" id="num_bed" name="num_bed" required>
@@ -29,7 +21,7 @@
             </div>
             <!-- Baths -->
             <div class="input-group mb-3">
-                <select class="custom-select" id="" required>
+                <select class="custom-select" id="num_bath" name="num_bath" required>
                     <option value="" disabled selected>Baths</option>
                     {% for baths in num_bath %}
                     <option value="{{ baths }}">{{ baths }}</option>
@@ -38,15 +30,15 @@
             </div>
             <!-- Address -->
             <div class="form-group">
-                <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="inputAddress2"
-                    placeholder="Apartment, studio or floor number" required>
+                <input type="text" class="form-control" id="address2" name="address2"
+                    placeholder="Apartment, studio or floor number">
             </div>
             <!-- District -->
             <div class="input-group mb-3">
-                <select class="custom-select" id="" required>
+                <select class="custom-select" id="district" name="district" required>
                     <option value="" disabled selected>District</option>
                     {% for district in districts %}
                     <option value="{{ district }}">{{ district }}</option>
@@ -56,23 +48,36 @@
             <!-- City -->
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="inputCity" placeholder="City" required>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
                 </div>
                 <!-- ZIPCODE -->
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="inputZip" placeholder="Zipcode" required>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zipcode" required>
                 </div>
             </div>
             <!-- Description -->
             <div class="form-group">
-                <textarea class="form-control" rows="7" id="description" placeholder="Description"></textarea>
+                <textarea class="form-control" rows="7" id="description" name="description"
+                    placeholder="Description" required></textarea>
             </div>
             <!-- Image -->
             <div class="form-group">
-                <p>Please add a link to the photo of the property</p>
+                <p>Please add a link to the photo of the property - Optional</p>
                 <input id="imgUrl" name="imgUrl" class="form-control" type="url" maxlength="150"
                     placeholder="https://...">
             </div>
+            <!-- Price -->
+            <div class="form-group for-sale-div required">
+                <p>Please inform the price for sale</p>
+                <input type="number" min="1" step="any" name="sale_price"
+                    placeholder="£">
+            </div>
+            <div class="form-group for-rent-div required">
+                <p>Please inform the monthly rent price</p>
+                <input type="number" min="1" step="any" name="rent_price"
+                    placeholder="£">
+            </div>
+            <!-- Edit and delete Property button -->
             <div class="edit-delete-buttons">
                 <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Edit</button>
                 <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Delete</button>

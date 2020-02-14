@@ -24,6 +24,8 @@ def add_property():
     if request.method == "POST":
         properties = properties_collection
         properties.insert_one(request.form.to_dict())
+
+        #Criar pagina de redirecionamento apos inclusao de imovel
         return redirect(url_for('properties.add_property'))
 
 
@@ -41,9 +43,9 @@ def edit_property():
                            districts=districts_list)
 
 
-@properties.route("/properties_listing", methods=["GET", "POST"])
+@properties.route("/properties_list", methods=["GET", "POST"])
 def list_properties():
-
+    
     # value of selection , sale, rent or all in searching dropdown
     sort_by_selector = request.args.get('search')
 
@@ -60,5 +62,5 @@ def list_properties():
     if sort_by_selector == "for_sale":
         sort_by_selector = for_sale
 
-    return render_template("properties_listing.html",
+    return render_template("properties_list.html",
                            sort_by_selector=sort_by_selector)
