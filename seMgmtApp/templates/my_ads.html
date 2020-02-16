@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="input-group my-4">
-                <select class="custom-select col-md-4 ml-auto " id="sort_by" name="sort_by" aria-label="Sort By">
+                <select class="custom-select col-md-4 ml-auto " id="sort_by_agent" name="sort_by_agent" aria-label="Sort By for agent page">
                     <option value="" disabled selected>Sort By </option>
                     <option value="all_properties">All</option>
                     <option value="for_sale">For Sale</option>
@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div class="row col-12 mx-auto px-0 px-md-auto">
-                {% for property in my_ads %}
+                {% for property in sort_by_selector %}
                 {% include "partials/cards.html" %}
                 {% endfor %}
             </div>

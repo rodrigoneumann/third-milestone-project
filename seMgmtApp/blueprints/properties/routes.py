@@ -27,7 +27,7 @@ def add_property():
         properties = properties_collection
         properties.insert_one(request.form.to_dict())
 
-        #Criar pagina de redirecionamento apos inclusao de imovel
+        # Criar pagina de redirecionamento apos inclusao de imovel
         return redirect(url_for('properties.my_ads'))
 
 
@@ -44,25 +44,41 @@ def edit_property():
                            num_bath=num_baths_list,
                            districts=districts_list)
 
-@properties.route("/my_adds", methods=["GET", "POST"])
+
+@properties.route("/my_ads", methods=["GET", "POST"])
 def my_ads():
     # Show only the agent's ads
-    if request.method == "GET":
-        agent = session['username'].upper()
-        my_ads = properties_collection.find({ "agent" : agent })
-        return render_template("my_ads.html", my_ads=my_ads)
+    agent = session['username'].upper()
+
+    sort_by_selector = request.args.get('search2')
+
+    # MongoDB Queries for Sale, Rent or All
+    for_sale = properties_collection.find({"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
+    for_rent = properties_collection.find({"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
+    all_properties = properties_collection.find({"agent": agent})
+
+    # Sort_by_selector variable is set by dropdown in my_adds.html template
+    if sort_by_selector is None or sort_by_selector == "all_properties":
+        sort_by_selector = all_properties
+    if sort_by_selector == "for_rent":
+        sort_by_selector = for_rent
+    if sort_by_selector == "for_sale":
+        sort_by_selector = for_sale
+    
+    return render_template("my_ads.html", sort_by_selector=sort_by_selector)
 
 
 @properties.route("/properties_list", methods=["GET", "POST"])
 def list_properties():
-    
+
     # value of selection , sale, rent or all in searching dropdown
     sort_by_selector = request.args.get('search')
 
-    #MongoDB Queries for Sale, Rent or All 
-    for_sale = properties_collection.find( { "sale_price" : { "$gt" : "1" } } )
-    for_rent = properties_collection.find( { "rent_price" : { "$gt" : "1" } } )
-    all_properties = properties_collection.find( { "$or" : [ { "sale_price" : { "$gt" : "1" } }, { "rent_price" : { "$gt" : "1" } } ] } )
+    # MongoDB Queries for Sale, Rent or All
+    for_sale = properties_collection.find({"sale_price": {"$gt": "1"}})
+    for_rent = properties_collection.find({"rent_price": {"$gt": "1"}})
+    all_properties = properties_collection.find(
+        {"$or": [{"sale_price": {"$gt": "1"}}, {"rent_price": {"$gt": "1"}}]})
 
     # Sort_by_selector variable is set by dropdown in properties_listing.html template
     if sort_by_selector is None or sort_by_selector == "all_properties":
