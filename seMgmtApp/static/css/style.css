@@ -23,6 +23,12 @@ ul {
     list-style-type: none;
 }
 
+.flash_message {
+    color: rgb(153, 70, 70);
+    justify-content: center;
+    font-size: 18px;
+}
+
 .nav-item {
     cursor: pointer;
 }

@@ -10,9 +10,9 @@ def create_app(config_class=Config):
 
 
     # Views
-    from seMgmtApp.blueprints.reg_login.views import reg_login
-    from seMgmtApp.blueprints.main.views import main
-    from seMgmtApp.blueprints.properties.views import properties
+    from seMgmtApp.blueprints.reg_login.routes import reg_login
+    from seMgmtApp.blueprints.main.routes import main
+    from seMgmtApp.blueprints.properties.routes import properties
     app.register_blueprint(reg_login)
     app.register_blueprint(main)
     app.register_blueprint(properties)

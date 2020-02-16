@@ -7,15 +7,23 @@
         <span>CREATE ACCOUNT</span>
     </div>
     <div class="container form-register px-4">
-        <form>
+        <form method="POST" action="{{ url_for('reg_login.register') }}">
             <div class="form-group d-flex mt-5">
                 <i class="fas fa-user-tie user-icon"></i>
-                <input type="text" class="form-control" id="register" name="address2" placeholder="Username" required>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" pattern="[A-Za-z0-9_]{5,}" title="Only letters and numbers. min lengh 5 characters.">
             </div>
             <div class="form-group d-flex mt-4">
                 <i class="fas fa-key password-icon"></i>
-                <input type="password" class="form-control" id="password" name="address2" placeholder="Password"
-                    required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="[A-Za-z0-9_]{5,}" title="Only letters and numbers. min lengh 5 characters." required>
+            </div>
+            <div class="row flash_message">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <span>{{ message }}</span>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
             </div>
             <div class="register-button mt-1 mb-4">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt fa-sm"></i> Register</button>
