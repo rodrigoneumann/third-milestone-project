@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, request, url_for, session
 from seMgmtApp.helpers import (properties_collection, dropdown_properties_type, dropdown_num_beds,
                                dropdown_num_baths, dropdown_districts)
 
@@ -14,19 +14,21 @@ def add_property():
         num_beds_list = dropdown_num_beds()
         num_baths_list = dropdown_num_baths()
         districts_list = dropdown_districts()
+        agent = session['username'].upper()
 
         return render_template("add_property.html",
                                types=type_list,
                                num_bed=num_beds_list,
                                num_bath=num_baths_list,
-                               districts=districts_list)
+                               districts=districts_list,
+                               agent=agent)
 
     if request.method == "POST":
         properties = properties_collection
         properties.insert_one(request.form.to_dict())
 
         #Criar pagina de redirecionamento apos inclusao de imovel
-        return redirect(url_for('properties.add_property'))
+        return redirect(url_for('properties.my_ads'))
 
 
 @properties.route("/edit_property", methods=["GET", "POST"])
@@ -41,6 +43,14 @@ def edit_property():
                            num_bed=num_beds_list,
                            num_bath=num_baths_list,
                            districts=districts_list)
+
+@properties.route("/my_adds", methods=["GET", "POST"])
+def my_ads():
+    # Show only the agent's ads
+    if request.method == "GET":
+        agent = session['username'].upper()
+        my_ads = properties_collection.find({ "agent" : agent })
+        return render_template("my_ads.html", my_ads=my_ads)
 
 
 @properties.route("/properties_list", methods=["GET", "POST"])

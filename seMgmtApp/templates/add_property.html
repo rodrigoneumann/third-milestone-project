@@ -82,20 +82,23 @@
             </div>
             <!-- Image -->
             <div class="form-group">
-                <p>Please add a link to the photo of the property - Optional</p>
+                <span>Please add a link to the photo of the property - Optional</span>
                 <input id="imgUrl" name="imgUrl" class="form-control" type="url" maxlength="150"
                     placeholder="https://...">
             </div>
             <!-- Price -->
             <div class="form-group for-sale-div required">
-                <p>Please inform the price for sale</p>
-                <input type="number" min="1" step="any" name="sale_price"
-                    placeholder="£">
+                <span>Please inform the price for sale</span><br>
+                <input type="number" min="1" step="any" name="sale_price" placeholder="£">
             </div>
             <div class="form-group for-rent-div required">
-                <p>Please inform the monthly rent price</p>
-                <input type="number" min="1" step="any" name="rent_price"
-                    placeholder="£">
+                <span>Please inform the monthly rent price</span><br>
+                <input type="number" min="1" step="any" name="rent_price" placeholder="£">
+            </div>
+            <!-- Assigned agent -->
+            <div class="form-group">
+                <span>Assigned Agent</span>
+                <input type="text" class="form-control" id="agent" name="agent" value="{{ agent }}" readonly>
             </div>
             <!-- Add Property button -->
             <div class="add-property-button">
