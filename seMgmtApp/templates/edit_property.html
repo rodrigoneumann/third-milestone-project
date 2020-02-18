@@ -2,18 +2,19 @@
 
 {% block content %}
 
+{% for detail in property_details %}
 
 <div class="container-fluid col-11 col-md-8 col-lg-6 col-xl-5 mb-4 add-property-container">
     <div class="row add-title mb-3">
         <h4>EDIT PROPERTY</h4>
     </div>
     <div class="row mx-auto px-2 mt-3 form-property">
+        <div class="row col-12 justify-content-center mb-2">{{detail.address}}</div>
         <form>
-
             <!-- Beds -->
             <div class="input-group mb-3">
                 <select class="custom-select" id="num_bed" name="num_bed" required>
-                    <option value="" disabled selected>Beds</option>
+                    <option value="" disabled selected>{{detail.num_bed}}</option>
                     {% for beds in num_bed %}
                     <option value="{{ beds }}">{{ beds }}</option>
                     {% endfor %}
@@ -22,7 +23,7 @@
             <!-- Baths -->
             <div class="input-group mb-3">
                 <select class="custom-select" id="num_bath" name="num_bath" required>
-                    <option value="" disabled selected>Baths</option>
+                    <option value="" disabled selected>{{detail.num_bath}}</option>
                     {% for baths in num_bath %}
                     <option value="{{ baths }}">{{ baths }}</option>
                     {% endfor %}
@@ -39,7 +40,7 @@
             <!-- District -->
             <div class="input-group mb-3">
                 <select class="custom-select" id="district" name="district" required>
-                    <option value="" disabled selected>District</option>
+                    <option value="" disabled selected>{{detail.district}}</option>
                     {% for district in districts %}
                     <option value="{{ district }}">{{ district }}</option>
                     {% endfor %}
@@ -79,12 +80,13 @@
             </div>
             <!-- Edit and delete Property button -->
             <div class="edit-delete-buttons">
-                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Edit</button>
+                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Save</button>
                 <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Delete</button>
             </div>
         </form>
     </div>
 </div>
 
+{% endfor %}
 
 {% endblock %}

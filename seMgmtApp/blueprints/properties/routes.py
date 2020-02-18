@@ -33,18 +33,23 @@ def add_property():
         return redirect(url_for('properties.my_ads'))
 
 
-@properties.route("/edit_property", methods=["GET", "POST"])
-def edit_property():
+@properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
+def edit_property(property_id):
+
     type_list = dropdown_properties_type()
     num_beds_list = dropdown_num_beds()
     num_baths_list = dropdown_num_baths()
     districts_list = dropdown_districts()
 
-    return render_template("edit_property.html",
-                           types=type_list,
-                           num_bed=num_beds_list,
-                           num_bath=num_baths_list,
-                           districts=districts_list)
+    property_details = properties_collection.find({"_id": ObjectId(property_id)})
+    agent = session['username'].upper()
+    return render_template("edit_property.html", 
+                            property_details=property_details,
+                            agent=agent,
+                            types=type_list,
+                            num_bed=num_beds_list,
+                            num_bath=num_baths_list,
+                            districts=districts_list,)
 
 
 @properties.route("/my_ads", methods=["GET", "POST"])
@@ -56,8 +61,10 @@ def my_ads():
     sort_by_selector = request.args.get('search2')
 
     # MongoDB Queries for Sale, Rent or All
-    for_sale = properties_collection.find({"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
-    for_rent = properties_collection.find({"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
+    for_sale = properties_collection.find(
+        {"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
+    for_rent = properties_collection.find(
+        {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
     all_properties = properties_collection.find({"agent": agent})
 
     # Sort_by_selector variable is set by dropdown in my_adds.html template
@@ -67,7 +74,7 @@ def my_ads():
         sort_by_selector = for_rent
     if sort_by_selector == "for_sale":
         sort_by_selector = for_sale
-    
+
     return render_template("my_ads.html", sort_by_selector=sort_by_selector)
 
 
@@ -94,8 +101,11 @@ def list_properties():
     return render_template("properties_list.html",
                            sort_by_selector=sort_by_selector)
 
+
 @properties.route("/property_details/<property_id>", methods=["GET", "POST"])
 def property_details(property_id):
-    
-        property_details = properties_collection.find({"_id": ObjectId(property_id)})
-        return render_template("property.html", property_details=property_details)
+
+    property_details = properties_collection.find(
+        {"_id": ObjectId(property_id)})
+    agent = session['username'].upper()
+    return render_template("property.html", property_details=property_details, agent=agent)

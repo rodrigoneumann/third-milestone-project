@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto my-4 property-details-box">
                 <div class="row col-12 details-top-box">
-                        <span class="top-address col-md-6">{{detail.address}} {{detail.address2}}</span>
-                        <span class="details-price col-md-6">
+                    <span class="top-address col-md-6">{{detail.address}} {{detail.address2}}</span>
+                    <span class="details-price col-md-6">
                         {% if detail.rent_price %}
                         <div>£{{detail.rent_price}} PCM</div>
                         {% else %}
@@ -18,29 +18,32 @@
                         {% endif %}
                     </span>
                 </div>
-                <div class="property-image-box">
-                    {% if detail.imgUrl %}
-                    <img src="{{ detail.imgUrl }}" class="img-fluid property-img" alt="Property Image" lazyload="on">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='img/no-image.png') }}" class="img-fluid property-img"
-                        alt="Property Image" lazyload="on">
-                    {% endif %}
-                </div>
-                <div class="row justify-content-between">
-                    <div class="col-md-5 col-lg-4">
-                        <div class="property-summary">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d section-t4">
-                                        <h3 class="title-d">Property Summary</h3>
-                                    </div>
+                <div class="row">
+                    <div class="col-md-7 property-image-box">
+                        {% if detail.imgUrl %}
+                        <img src="{{ detail.imgUrl }}" class="img-fluid details-property-img" alt="Property Image"
+                            lazyload="on">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='img/no-image.png') }}"
+                            class="img-fluid details-property-img" alt="Property Image" lazyload="on">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-5">
+                        <div class="col-12">
+                            <div class="row justify-content-center">
+                                <div class="details-description-title">
+                                    <span>Property Summary</span>
                                 </div>
                             </div>
-                            <div class="summary-list">
-                                <ul class="list">
+                            <div class="row col-12 summary-list-box">
+                                <ul class="col-12 summary-list">
                                     <li class="d-flex justify-content-between">
-                                        <strong>Location:</strong>
-                                        <span>{{detail.city}} - {{detail.district}}</span>
+                                        <strong>City:</strong>
+                                        <span>{{detail.city}}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>District:</strong>
+                                        <span>{{detail.district}}</span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Postcode:</strong>
@@ -66,21 +69,32 @@
                                         <strong>Baths:</strong>
                                         <span>{{detail.num_bath}}</span>
                                     </li>
+                                    <li class="d-flex justify-content-between pt-2">
+                                        <strong>Agent:</strong>
+                                        <span>{{detail.agent}}</span>
+                                    </li>
                                 </ul>
+                                <!-- Edit and delete Property button check if is ads owner  -->
+                                {% if agent == detail.agent %}
+                                <div class="col-12 mt-3 ml-auto">
+                                    <a href={{ url_for( 'properties.edit_property', property_id = detail._id) }}><button type="submit"
+                                            class="btn btn-dark btn-block mb-3 mx-2">Edit property</button></a>
+                                </div>
+                                {% else %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 col-lg-7 section-md-t3">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="title-box-d">
-                                    <h3 class="title-d">Property Description</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-description">
-                            <p class="description color-text-a">{{detail.description}}</p>
-                        </div>
+                    <hr>
+
+                </div>
+                <div class="container col-12">
+                    <div class="row details-description-title">
+                        <span>Property Description</span>
+                    </div>
+                    <div class="property-description mb-3">
+                        <span>{{detail.description}}</span>
+
                     </div>
                 </div>
             </div>
