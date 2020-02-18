@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for detail in property_details %}
+
+<section class="col-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9 mx-auto my-4 property-details-box">
+                <div class="row col-12 details-top-box">
+                        <span class="top-address col-md-6">{{detail.address}} {{detail.address2}}</span>
+                        <span class="details-price col-md-6">
+                        {% if detail.rent_price %}
+                        <div>£{{detail.rent_price}} PCM</div>
+                        {% else %}
+                        <div>£{{detail.sale_price}}</div>
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="property-image-box">
+                    {% if detail.imgUrl %}
+                    <img src="{{ detail.imgUrl }}" class="img-fluid property-img" alt="Property Image" lazyload="on">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='img/no-image.png') }}" class="img-fluid property-img"
+                        alt="Property Image" lazyload="on">
+                    {% endif %}
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="property-summary">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d section-t4">
+                                        <h3 class="title-d">Property Summary</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-list">
+                                <ul class="list">
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Location:</strong>
+                                        <span>{{detail.city}} - {{detail.district}}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Postcode:</strong>
+                                        <span>{{detail.zipCode}}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Property Type:</strong>
+                                        <span>{{detail.property_type}}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Status:</strong>
+                                        {% if detail.rent_price != null %}
+                                        <span>For Rent</span>
+                                        {% else %}
+                                        <span>For Sale</span>
+                                        {% endif %}
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Beds:</strong>
+                                        <span>{{detail.num_bed}}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Baths:</strong>
+                                        <span>{{detail.num_bath}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-7 section-md-t3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="title-box-d">
+                                    <h3 class="title-d">Property Description</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-description">
+                            <p class="description color-text-a">{{detail.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endfor %}
+
+{% endblock %}

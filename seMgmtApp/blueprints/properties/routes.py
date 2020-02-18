@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
+from bson.objectid import ObjectId
 from seMgmtApp.helpers import (properties_collection, dropdown_properties_type, dropdown_num_beds,
                                dropdown_num_baths, dropdown_districts)
+
 
 properties = Blueprint("properties", __name__)
 
@@ -47,9 +49,10 @@ def edit_property():
 
 @properties.route("/my_ads", methods=["GET", "POST"])
 def my_ads():
-    # Show only the agent's ads
+    # Get the session username and set for the agent variable
     agent = session['username'].upper()
 
+    # value of selection , sale, rent or all in searching dropdown
     sort_by_selector = request.args.get('search2')
 
     # MongoDB Queries for Sale, Rent or All
@@ -90,3 +93,9 @@ def list_properties():
 
     return render_template("properties_list.html",
                            sort_by_selector=sort_by_selector)
+
+@properties.route("/property_details/<property_id>", methods=["GET", "POST"])
+def property_details(property_id):
+    
+        property_details = properties_collection.find({"_id": ObjectId(property_id)})
+        return render_template("property.html", property_details=property_details)

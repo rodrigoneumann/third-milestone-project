@@ -19,6 +19,14 @@ main {
     flex: 1 0 auto;
 }
 
+a,
+a:hover,
+a:link,
+a:visited a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 ul {
     list-style-type: none;
 }
@@ -81,7 +89,7 @@ ul {
 
 /* REGISTER */
 
-.add-title, 
+.add-title,
 .login-title,
 .register-title {
     display: flex;
@@ -168,7 +176,8 @@ ul {
     width: 200px;
 }
 
-.card-box {
+.card-box,
+.property-details-box  {
     margin: 0 0 1rem 0;
     border: 1px solid rgba(83, 83, 83, 0.698);
     border-radius: 15px;
@@ -178,7 +187,8 @@ ul {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.card-box:hover {
+.card-box,
+.property-details-box:hover {
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.16), 0 8px 15px rgba(0, 0, 0, 0.23);
 }
@@ -269,6 +279,48 @@ ul {
     margin-left: 5px;
 }
 
+/* Property Details */
+
+.property-details-box {
+    background-color: #fffffff7
+}
+
+.details-top-box {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.top-address {
+    display: flex;
+    justify-content: center;
+}
+
+.details-price {
+    display: flex;
+    justify-content: center;
+}
+
+.property-name-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.property-image-box {
+    width: 100%;
+}
+
+.details-address-box {
+    margin: 0 10px 0 0;
+}
+
+
+
+
 /* -----------------------------------
     MEDIA QUERY
 -------------------------------------- */
@@ -284,9 +336,30 @@ ul {
     .navbar-logo {
         padding: 5rem 5rem 0 5rem;
     }
+
+    .details-top-box {
+        font-size: 30px;
+    }
+
 }
 
-@media (min-width: 694px) {}
+@media (min-width: 768px) {
+    .top-address {
+        justify-content: flex-start;
+    }
+
+
+    .details-price {
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 992px) {
+    .details-top-box {
+        justify-content: space-between;
+    }
+
+}
 
 @media (min-width: 1200px) {
     main {
@@ -296,8 +369,5 @@ ul {
     .navbar-logo {
         padding: 5.5rem 5.5rem 0 5.5rem;
     }
+
 }
-
-@media (min-width: 1328px) {}
-
-@media (min-width: 1550px) {}
