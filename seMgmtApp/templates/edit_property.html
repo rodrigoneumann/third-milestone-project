@@ -10,10 +10,10 @@
     </div>
     <div class="row mx-auto px-2 mt-3 form-property">
         <div class="row col-12 justify-content-center mb-2">{{detail.address}}</div>
-        <form>
+        <form method="POST">
             <!-- Beds -->
             <div class="input-group mb-3">
-                <select class="custom-select" id="num_bed" name="num_bed" required>
+                <select class="custom-select" id="num_bed" name="num_bed">
                     <option value="" disabled selected>{{detail.num_bed}}</option>
                     {% for beds in num_bed %}
                     <option value="{{ beds }}">{{ beds }}</option>
@@ -22,7 +22,7 @@
             </div>
             <!-- Baths -->
             <div class="input-group mb-3">
-                <select class="custom-select" id="num_bath" name="num_bath" required>
+                <select class="custom-select" id="num_bath" name="num_bath">
                     <option value="" disabled selected>{{detail.num_bath}}</option>
                     {% for baths in num_bath %}
                     <option value="{{ baths }}">{{ baths }}</option>
@@ -31,15 +31,15 @@
             </div>
             <!-- Address -->
             <div class="form-group">
-                <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+                <input type="text" class="form-control" id="address" name="address" value="{{detail.address}}" placeholder="Address">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="address2" name="address2"
+                <input type="text" class="form-control" id="address2" name="address2" value="{{detail.address2}}"
                     placeholder="Apartment, studio or floor number">
             </div>
             <!-- District -->
             <div class="input-group mb-3">
-                <select class="custom-select" id="district" name="district" required>
+                <select class="custom-select" id="district" name="district">
                     <option value="" disabled selected>{{detail.district}}</option>
                     {% for district in districts %}
                     <option value="{{ district }}">{{ district }}</option>
@@ -49,39 +49,41 @@
             <!-- City -->
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                    <input type="text" class="form-control" id="city" name="city" value="{{detail.city}}" placeholder="City">
                 </div>
                 <!-- ZIPCODE -->
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zipcode" required>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" value="{{detail.zipCode}}" placeholder="Zipcode">
                 </div>
             </div>
             <!-- Description -->
             <div class="form-group">
-                <textarea class="form-control" rows="7" id="description" name="description"
-                    placeholder="Description" required></textarea>
+                <textarea class="form-control" rows="7" id="description" name="description" placeholder="Description">
+                {{ detail.description }}
+                </textarea>
             </div>
             <!-- Image -->
             <div class="form-group">
                 <p>Please add a link to the photo of the property - Optional</p>
                 <input id="imgUrl" name="imgUrl" class="form-control" type="url" maxlength="150"
-                    placeholder="https://...">
+                    value="{{detail.imgUrl}}" placeholder="https://...">
             </div>
             <!-- Price -->
-            <div class="form-group for-sale-div required">
+            {% if detail.sale_price > "1"  %}
+            <div class="form-group required">
                 <p>Please inform the price for sale</p>
-                <input type="number" min="1" step="any" name="sale_price"
-                    placeholder="£">
-            </div>
-            <div class="form-group for-rent-div required">
+                <input type="number" min="1" step="any" name="sale_price" value="{{detail.sale_price}}" placeholder="£">
+            </div>{% endif %}
+            {% if detail.rent_price > "1" %}
+            <div class="form-group required">
                 <p>Please inform the monthly rent price</p>
-                <input type="number" min="1" step="any" name="rent_price"
-                    placeholder="£">
+                <input type="number" min="1" step="any" name="rent_price" value="{{detail.rent_price}}" placeholder="£">
             </div>
+            {% endif %}
             <!-- Edit and delete Property button -->
             <div class="edit-delete-buttons">
-                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Save</button>
-                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Delete</button>
+                <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Update</button>
+
             </div>
         </form>
     </div>

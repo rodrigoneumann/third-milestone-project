@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for, session
+from flask import Blueprint, render_template, redirect, request, url_for, session, flash
 from bson.objectid import ObjectId
 from seMgmtApp.helpers import (properties_collection, dropdown_properties_type, dropdown_num_beds,
                                dropdown_num_baths, dropdown_districts)
@@ -36,20 +36,30 @@ def add_property():
 @properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
 
-    type_list = dropdown_properties_type()
-    num_beds_list = dropdown_num_beds()
-    num_baths_list = dropdown_num_baths()
-    districts_list = dropdown_districts()
+    if request.method == "GET":
+        type_list = dropdown_properties_type()
+        num_beds_list = dropdown_num_beds()
+        num_baths_list = dropdown_num_baths()
+        districts_list = dropdown_districts()
 
-    property_details = properties_collection.find({"_id": ObjectId(property_id)})
-    agent = session['username'].upper()
-    return render_template("edit_property.html", 
-                            property_details=property_details,
-                            agent=agent,
-                            types=type_list,
-                            num_bed=num_beds_list,
-                            num_bath=num_baths_list,
-                            districts=districts_list,)
+        property_details = properties_collection.find(
+            {"_id": ObjectId(property_id)})
+        agent = session['username'].upper()
+
+        return render_template("edit_property.html",
+                                property_details=property_details,
+                                agent=agent,
+                                types=type_list,
+                                num_bed=num_beds_list,
+                                num_bath=num_baths_list,
+                                districts=districts_list)
+
+    if request.method == "POST":
+        
+        properties_collection.update_one(request.form.to_dict())
+
+        return redirect(url_for('properties.my_ads'))
+
 
 
 @properties.route("/my_ads", methods=["GET", "POST"])
