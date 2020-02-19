@@ -56,7 +56,7 @@ def edit_property(property_id):
 
     if request.method == "POST":
         
-        properties_collection.update_one(request.form.to_dict())
+        properties_collection.update_one({"_id": ObjectId(property_id)},{'$set': request.form.to_dict()})
 
         return redirect(url_for('properties.my_ads'))
 
