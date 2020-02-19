@@ -14,13 +14,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('properties.list_properties') }}">All Properties</a>
             </li>
+            <!-- Check if there is a user logged in and show personal page -->
             {% if 'username' in session %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('properties.add_property') }}">Add a Property</a></li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('properties.my_ads') }}">My Ads</a></li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.index') }}">Profile</a></li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('reg_login.logout') }}">Logout</a></li>
+
+            <!-- If there's no user logged in session this links will be display -->
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('reg_login.register') }}">Create Account</a>

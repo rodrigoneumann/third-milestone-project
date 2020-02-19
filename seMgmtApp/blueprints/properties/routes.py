@@ -29,7 +29,7 @@ def add_property():
         properties = properties_collection
         properties.insert_one(request.form.to_dict())
 
-        # Criar pagina de redirecionamento apos inclusao de imovel
+        # After add a new property it's redirected to my_ads page
         return redirect(url_for('properties.my_ads'))
 
 
@@ -61,6 +61,12 @@ def edit_property(property_id):
         return redirect(url_for('properties.my_ads'))
 
 
+@properties.route("/delete_property/<property_id>", methods=["GET", "POST"])
+def delete_property(property_id):
+
+        properties_collection.delete_one({"_id": ObjectId(property_id)})
+
+        return redirect(url_for('properties.my_ads'))
 
 @properties.route("/my_ads", methods=["GET", "POST"])
 def my_ads():
