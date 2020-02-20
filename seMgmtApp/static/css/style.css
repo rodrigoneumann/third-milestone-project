@@ -40,8 +40,7 @@ ul {
 /* Carousel img fix size */
 
 .carousel-inner>.carousel-item>img {
-    height: 40vh;
-    max-height: 40vh;
+    height: 30vh;
 }
 
 /* Carousel img fix size end */
@@ -402,6 +401,10 @@ ul {
     .summary-list,
     .property-description {
         padding: 0;
+    }
+
+    .carousel-inner>.carousel-item>img {
+        height: 40vh;
     }
 
     .title-carousel {
