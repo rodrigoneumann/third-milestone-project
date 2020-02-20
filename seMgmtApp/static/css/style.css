@@ -40,7 +40,8 @@ ul {
 /* Carousel img fix size */
 
 .carousel-inner,
-.carousel-item {
+.carousel-item,
+.carousel-inner .carousel-item .img  {
     height: 30vh;
 }
 
