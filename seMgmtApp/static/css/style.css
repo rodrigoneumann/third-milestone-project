@@ -41,6 +41,7 @@ ul {
 
 .carousel-inner>.carousel-item>img {
     height: 40vh;
+    max-height: 40vh;
 }
 
 /* Carousel img fix size end */
