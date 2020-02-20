@@ -117,7 +117,9 @@ def list_properties():
         sort_by_selector = for_sale
 
     return render_template("properties_list.html",
-                           sort_by_selector=sort_by_selector)
+                           sort_by_selector=sort_by_selector,
+                           for_sale=for_sale,
+                           for_rent=for_rent)
 
 
 @properties.route("/property_details/<property_id>", methods=["GET", "POST"])

@@ -37,8 +37,22 @@ ul {
     font-size: 18px;
 }
 
-.nav-item {
-    cursor: pointer;
+/* Carousel img fix size */
+
+.carousel-inner>.carousel-item>img {
+    height: 40vh;
+}
+
+/* Carousel img fix size end */
+
+.title-carousel {
+    background-color: rgba(255, 255, 255, 0.897);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 8px;
+    font-size: 22px;
+    text-transform: capitalize;
+    padding: 0 8px;
+    color: rgb(47, 47, 47);
 }
 
 .navbar-color {
@@ -387,6 +401,10 @@ ul {
     .summary-list,
     .property-description {
         padding: 0;
+    }
+
+    .title-carousel {
+        font-size: 30px;
     }
 }
 
