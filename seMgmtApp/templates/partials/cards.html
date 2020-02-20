@@ -19,14 +19,14 @@
                 </div>
                 <div class="row card-price-box">
                     <span class="card-type">
-                        {% if property.rent_price > "1" %}
+                        {% if property.rent_price %}
                         For Rent -
                         {% else %}
                         For Sale -
                         {% endif %}
                     </span>
                     <span class="card-price">
-                        {% if property.rent_price > "1" %}
+                        {% if property.rent_price %}
                         £{{ property.rent_price }} pcm
                         {% else %}
                         £{{ property.sale_price }}

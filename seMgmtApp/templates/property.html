@@ -76,13 +76,13 @@
                                 </ul>
                                 <!-- Edit and delete Property button check if is ads owner  -->
                                 {% if agent == detail.agent %}
-                                <div class="col-12 mt-3 ml-auto">
+                                <div class="col-6 mx-auto">
                                     <a href={{ url_for( 'properties.edit_property', property_id = detail._id) }}><button type="submit"
-                                            class="btn btn-dark btn-block mb-3 mx-2">Edit property</button></a>
+                                            class="btn btn-dark btn-block btn-sm mx-auto">Edit</button></a>
                                 </div>
-                                <div class="col-12 mt-3 ml-auto">
+                                <div class="col-6 mx-auto">
                                     <a href={{ url_for( 'properties.delete_property', property_id = detail._id) }}><button type="submit"
-                                            class="btn btn-dark btn-block mb-3 mx-2">Delete property</button></a>
+                                            class="btn btn-dark btn-block btn-sm mx-auto">Delete</button></a>
                                 </div>
                                 {% else %}
                                 {% endif %}

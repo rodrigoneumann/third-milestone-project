@@ -47,16 +47,17 @@ def edit_property(property_id):
         agent = session['username'].upper()
 
         return render_template("edit_property.html",
-                                property_details=property_details,
-                                agent=agent,
-                                types=type_list,
-                                num_bed=num_beds_list,
-                                num_bath=num_baths_list,
-                                districts=districts_list)
+                               property_details=property_details,
+                               agent=agent,
+                               types=type_list,
+                               num_bed=num_beds_list,
+                               num_bath=num_baths_list,
+                               districts=districts_list)
 
     if request.method == "POST":
-        
-        properties_collection.update_one({"_id": ObjectId(property_id)},{'$set': request.form.to_dict()})
+
+        properties_collection.update_one({"_id": ObjectId(property_id)}, {
+                                         '$set': request.form.to_dict()})
 
         return redirect(url_for('properties.my_ads'))
 
@@ -64,9 +65,10 @@ def edit_property(property_id):
 @properties.route("/delete_property/<property_id>", methods=["GET", "POST"])
 def delete_property(property_id):
 
-        properties_collection.delete_one({"_id": ObjectId(property_id)})
+    properties_collection.delete_one({"_id": ObjectId(property_id)})
 
-        return redirect(url_for('properties.my_ads'))
+    return redirect(url_for('properties.my_ads'))
+
 
 @properties.route("/my_ads", methods=["GET", "POST"])
 def my_ads():
