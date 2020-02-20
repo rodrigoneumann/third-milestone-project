@@ -20,7 +20,8 @@
             <div class="carousel-inner">
                 {% for item in for_sale %}
                 <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
-                    <img class="d-block w-100" src="{% if item.imgUrl %} {{item.imgUrl}} {% else %} {{url_for('static', filename='img/no-image.png') }}{% endif %}" alt="Property for sale">
+                    <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
+                    <img class="d-block w-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
                     <div class="carousel-caption d-md-block">
                         <span class="title-carousel">{{ item.address }}</span>
                     </div>
@@ -54,7 +55,8 @@
 			<div class="carousel-inner">
 				{% for item in for_rent %}
                 <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
-                    <img class="d-block w-100" src="{% if item.imgUrl %} {{item.imgUrl}} {% else %} {{url_for('static', filename='img/no-image.png') }}{% endif %}" alt="Property for sale">
+                    <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
+                    <img class="d-block w-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
                     <div class="carousel-caption d-md-block">
                         <span class="title-carousel">{{ item.address }}</span>
                     </div>

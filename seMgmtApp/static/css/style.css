@@ -39,7 +39,8 @@ ul {
 
 /* Carousel img fix size */
 
-.carousel-inner>.carousel-item>img {
+.carousel-inner,
+.carousel-item {
     height: 30vh;
 }
 
@@ -403,7 +404,9 @@ ul {
         padding: 0;
     }
 
-    .carousel-inner>.carousel-item>img {
+    .carousel-inner,
+    .carousel-item,
+    .carousel-inner .carousel-item .img {
         height: 40vh;
     }
 
