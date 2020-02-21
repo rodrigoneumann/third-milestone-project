@@ -129,3 +129,5 @@ def property_details(property_id):
         {"_id": ObjectId(property_id)})
     agent = session['username'].upper()
     return render_template("property.html", property_details=property_details, agent=agent)
+
+    
