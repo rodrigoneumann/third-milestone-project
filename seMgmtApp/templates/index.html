@@ -2,81 +2,84 @@
 
 {% block content %}
 
-
 <div class="container-fluid p-0">
-        <div class="col-12 banner"></div>
+    <div class="row col-12 banner"></div>
 
     <!-- Carousel To buy -->
-    <div class="carousel-main">
-    <div class="container col-12 col-md-6 col-xl-4 carousel-buy">
-        <div class="carousel slide" id="main-carousel" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#main-carousel" data-slide-to="1"></li>
-                <li data-target="#main-carousel" data-slide-to="2"></li>
-                <li data-target="#main-carousel" data-slide-to="3"></li>
-                <li data-target="#main-carousel" data-slide-to="4"></li>
-                <li data-target="#main-carousel" data-slide-to="5"></li>
-            </ol><!-- /.carousel-indicators -->
+    <div class="container col-12 p-0">
+        <div class="carousel-main">
+            <div class="container carousel-buy">
+                <div class="row title-buy">Latest for sale</div>
+                <div class="carousel slide" id="main-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#main-carousel" data-slide-to="1"></li>
+                        <li data-target="#main-carousel" data-slide-to="2"></li>
+                        <li data-target="#main-carousel" data-slide-to="3"></li>
+                        <li data-target="#main-carousel" data-slide-to="4"></li>
+                        <li data-target="#main-carousel" data-slide-to="5"></li>
+                    </ol><!-- /.carousel-indicators -->
 
-            <div class="carousel-inner">
-                {% for item in for_sale %}
-                <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
-                    <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
-                    <img class="d-block w-100 h-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
-                    <div class="carousel-caption d-md-block">
-                        <span class="title-carousel">{{ item.address }}</span>
-                    </div>
+                    <div class="carousel-inner">
+                        {% for item in for_sale %}
+                        <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
+                            <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
+                                <img class="d-block w-100 h-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
+                            <div class="carousel-caption d-md-block">
+                                <span class="title-carousel">{{ item.address }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- /.carousel-inner -->
+
+                    <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Prev</span>
+                    </a>
+                    <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Next</span>
+                    </a>
+                </div><!-- /.carousel -->
+            </div><!-- /.container -->
+
+
+            <!-- Carousel To rent -->
+            <div class="container carousel-rent">
+                <div class="row title-rent">Latest for letting</div>
+                <div class="carousel slide" id="main-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#main-carousel" data-slide-to="1"></li>
+                        <li data-target="#main-carousel" data-slide-to="2"></li>
+                        <li data-target="#main-carousel" data-slide-to="4"></li>
+                        <li data-target="#main-carousel" data-slide-to="5"></li>
+                    </ol><!-- /.carousel-indicators -->
+
+                    <div class="carousel-inner">
+                        {% for item in for_rent %}
+                        <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
+                            <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
+                                <img class="d-block w-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
+                            <div class="carousel-caption d-md-block">
+                                <span class="title-carousel">{{ item.address }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- /.carousel-inner -->
+
+                    <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Prev</span>
+                    </a>
+                    <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only" aria-hidden="true">Next</span>
+                    </a>
                 </div>
-                {% endfor %}
-            </div><!-- /.carousel-inner -->
-
-            <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="sr-only" aria-hidden="true">Prev</span>
-            </a>
-            <a href="#main-carousel" class="carousel-control-next" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="sr-only" aria-hidden="true">Next</span>
-            </a>
-        </div><!-- /.carousel -->
-    </div><!-- /.container -->
-
-
-<!-- Carousel To rent -->
-	<div class="container col-12 col-md-6 col-xl-4 carousel-rent">
-		<div class="carousel slide" id="main-carousel" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-				<li data-target="#main-carousel" data-slide-to="1"></li>
-				<li data-target="#main-carousel" data-slide-to="2"></li>
-                <li data-target="#main-carousel" data-slide-to="4"></li>
-                <li data-target="#main-carousel" data-slide-to="5"></li>
-			</ol><!-- /.carousel-indicators -->
-			
-			<div class="carousel-inner">
-				{% for item in for_rent %}
-                <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
-                    <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
-                    <img class="d-block w-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
-                    <div class="carousel-caption d-md-block">
-                        <span class="title-carousel">{{ item.address }}</span>
-                    </div>
-                </div>
-                {% endfor %}
-			</div><!-- /.carousel-inner -->
-			
-			<a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-				<span class="sr-only" aria-hidden="true">Prev</span>
-			</a>
-			<a href="#main-carousel" class="carousel-control-next" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-				<span class="sr-only" aria-hidden="true">Next</span>
-			</a>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}

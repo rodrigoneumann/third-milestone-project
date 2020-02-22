@@ -38,15 +38,28 @@ ul {
 }
 
 .banner {
-    display: flex;
-    width: 100%;
-    height: 39vh;
+    min-height: 35vh;
+    background-color: #FFF;
     background-image: url("../img/banner.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin: 0 auto;
     padding: 0;
+}
+
+.title-buy,
+.title-rent {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "poppins", sans-serif;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.carousel-main {
+    background-color: rgb(0, 0, 0);
 }
 
 /* Carousel img fix size */
@@ -91,11 +104,13 @@ ul {
 }
 
 .carousel-buy {
-    margin: 1rem auto;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
 }
 
 .carousel-rent {
-    margin: 0 auto 1rem auto;
+    margin: 0 auto;
+    padding: 10px 0 2rem 0;
 }
 
 .social-buttons {
@@ -384,7 +399,15 @@ ul {
 /* Mobile screen under 359px */
 @media (max-width: 359px) {}
 
-@media (min-width: 575px) {
+@media (min-width: 420px) {
+    .banner {
+        background-image: url("../img/banner-md.jpg");
+        min-height: 45vh;
+    }
+}
+
+
+@media (min-width: 576px) {
     main {
         margin-top: 6rem;
     }
@@ -398,6 +421,7 @@ ul {
     }
 
 }
+
 
 @media (min-width: 768px) {
     .top-address {
@@ -422,8 +446,12 @@ ul {
         display: flex;
     }
 
+    .carousel-buy {
+        padding: 1rem;
+    }
+    
     .carousel-rent {
-        margin: 1rem auto;
+        padding: 1rem 1rem 1rem 0;
     }
 
     .carousel-inner,
@@ -436,15 +464,16 @@ ul {
         font-size: 30px;
     }
 
-    .banner {
-        background-image: url("../img/banner-md.jpg");
-        height: 30vh;
-    }
 }
 
 @media (min-width: 992px) {
     .details-top-box {
         justify-content: space-between;
+    }
+
+    .banner {
+        background-image: url("../img/banner-xl.jpg");
+        min-height: 32vh;
     }
 
 }
@@ -458,15 +487,11 @@ ul {
         padding: 5.5rem 5.5rem 0 5.5rem;
     }
 
-    .banner {
-        background-image: url("../img/banner-xl.jpg");
-        height: 50vh;
-    }
 }
 
 @media (min-width: 1550px) {
     .banner {
         background-image: url("../img/banner-xl.jpg");
-        height: 60vh;
+        min-height: 50vh;
     }
 }
