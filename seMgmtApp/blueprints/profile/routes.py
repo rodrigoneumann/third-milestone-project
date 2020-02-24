@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session, flash
 from bson.objectid import ObjectId
+from seMgmtApp.helpers import users_collection
 
 profile = Blueprint("profile", __name__)
 
@@ -7,7 +8,11 @@ profile = Blueprint("profile", __name__)
 def view_profile():
 
     if session.get('username'):
-            return render_template("view_profile.html")
+        
+        agent = session['username']
+
+        
+        return render_template("view_profile.html", agent=agent)
 
     else:
         flash("You must be logged in to view this page.")
