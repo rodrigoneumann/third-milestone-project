@@ -43,7 +43,7 @@ ul {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 280px;
+    height: 250px;
     border: 1px solid rgba(128, 128, 128, 0.308);
     border-radius: 10px 10px 0 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -104,6 +104,9 @@ ul {
     padding: 3rem 3rem 0 3rem;
 }
 
+.username-nav {
+    text-transform: capitalize;
+}
 
 .carousel-buy {
     margin: 0 auto;
@@ -412,11 +415,15 @@ ul {
 -------------------------------------- */
 
 /* Mobile screen under 359px */
-@media (max-width: 359px) {}
+@media (max-width: 359px) {
+    .banner {
+        height: 230px;
+    }
+}
 
 @media (min-width: 420px) {
     .banner {
-        background-image: url("../img/banner-xl.jpg");
+        height: 280px;
     }
 }
 
@@ -487,7 +494,7 @@ ul {
     }
 
     .banner {
-        height: 40vh;
+        height: 330px;
     }
 
 }
@@ -497,25 +504,25 @@ ul {
         margin-top: 6.5rem;
     }
 
-    .navbar-logo {
-        padding: 5.5rem 5.5rem 0 5.5rem;
+    .carousel-buy {
+        padding: 1rem 2rem 1rem 0;
+    }
+
+    .carousel-rent {
+        padding: 1rem 0 1rem 1rem;
     }
 
     .carousel-inner,
     .carousel-item,
     .carousel-inner .carousel-item .img {
-        height: 35vh;
+        height: 280px;
     }
 }
 
 @media (min-width: 1550px) {
     .banner {
-        height: 45vh;
+        height: 450px;
     }
 
-    .carousel-inner,
-    .carousel-item,
-    .carousel-inner .carousel-item .img {
-        height: 38vh;
-    }
+
 }
