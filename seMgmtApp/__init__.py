@@ -13,8 +13,10 @@ def create_app(config_class=Config):
     from seMgmtApp.blueprints.reg_login.routes import reg_login
     from seMgmtApp.blueprints.main.routes import main
     from seMgmtApp.blueprints.properties.routes import properties
+    from seMgmtApp.blueprints.profile.routes import profile
     app.register_blueprint(reg_login)
     app.register_blueprint(main)
     app.register_blueprint(properties)
+    app.register_blueprint(profile)
 
     return app

@@ -10,28 +10,31 @@ properties = Blueprint("properties", __name__)
 @properties.route("/add_property", methods=["GET", "POST"])
 def add_property():
 
-    if request.method == "GET":
+    if session.get('username'):
+        if request.method == "GET":
 
-        type_list = dropdown_properties_type()
-        num_beds_list = dropdown_num_beds()
-        num_baths_list = dropdown_num_baths()
-        districts_list = dropdown_districts()
-        agent = session['username'].upper()
+            type_list = dropdown_properties_type()
+            num_beds_list = dropdown_num_beds()
+            num_baths_list = dropdown_num_baths()
+            districts_list = dropdown_districts()
+            agent = session['username'].upper()
 
-        return render_template("add_property.html",
-                               types=type_list,
-                               num_bed=num_beds_list,
-                               num_bath=num_baths_list,
-                               districts=districts_list,
-                               agent=agent)
+            return render_template("add_property.html",
+                                types=type_list,
+                                num_bed=num_beds_list,
+                                num_bath=num_baths_list,
+                                districts=districts_list,
+                                agent=agent)
 
-    if request.method == "POST":
-        properties = properties_collection
-        properties.insert_one(request.form.to_dict())
+        if request.method == "POST":
+            properties = properties_collection
+            properties.insert_one(request.form.to_dict())
 
-        # After add a new property it's redirected to my_ads page
-        return redirect(url_for('properties.my_ads'))
-
+            # After add a new property it's redirected to my_ads page
+            return redirect(url_for('properties.my_ads'))
+    else:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for('reg_login.login'))
 
 @properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
@@ -72,29 +75,34 @@ def delete_property(property_id):
 
 @properties.route("/my_ads", methods=["GET", "POST"])
 def my_ads():
-    # Get the session username and set for the agent variable
-    agent = session['username'].upper()
 
-    # value of selection , sale, rent or all in searching dropdown
-    sort_by_selector = request.args.get('search2')
+    if session.get('username'):
+        # Get the session username and set for the agent variable
+        agent = session['username'].upper()
 
-    # MongoDB Queries for Sale, Rent or All
-    for_sale = properties_collection.find(
-        {"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
-    for_rent = properties_collection.find(
-        {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
-    all_properties = properties_collection.find({"agent": agent})
+        # value of selection , sale, rent or all in searching dropdown
+        sort_by_selector = request.args.get('search2')
 
-    # Sort_by_selector variable is set by dropdown in my_adds.html template
-    if sort_by_selector is None or sort_by_selector == "all_properties":
-        sort_by_selector = all_properties
-    if sort_by_selector == "for_rent":
-        sort_by_selector = for_rent
-    if sort_by_selector == "for_sale":
-        sort_by_selector = for_sale
+        # MongoDB Queries for Sale, Rent or All
+        for_sale = properties_collection.find(
+            {"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
+        for_rent = properties_collection.find(
+            {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
+        all_properties = properties_collection.find({"agent": agent})
 
-    return render_template("my_ads.html", sort_by_selector=sort_by_selector)
+        # Sort_by_selector variable is set by dropdown in my_adds.html template
+        if sort_by_selector is None or sort_by_selector == "all_properties":
+            sort_by_selector = all_properties
+        if sort_by_selector == "for_rent":
+            sort_by_selector = for_rent
+        if sort_by_selector == "for_sale":
+            sort_by_selector = for_sale
 
+        return render_template("my_ads.html", sort_by_selector=sort_by_selector)
+
+    else:
+        flash("You must be logged in to view this page.")
+        return redirect(url_for('reg_login.login'))
 
 @properties.route("/properties_list", methods=["GET", "POST"])
 def list_properties():
