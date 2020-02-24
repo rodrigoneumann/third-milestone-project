@@ -125,9 +125,12 @@ def list_properties():
 @properties.route("/property_details/<property_id>", methods=["GET", "POST"])
 def property_details(property_id):
 
-    property_details = properties_collection.find(
-        {"_id": ObjectId(property_id)})
-    agent = session['username'].upper()
-    return render_template("property.html", property_details=property_details, agent=agent)
-
+    #checks if there is a user logged in, if yes, the variable agent for checking property is rendered
+    if session.get('username'):
+        property_details = properties_collection.find({"_id": ObjectId(property_id)})
+        agent = session['username'].upper()
+        return render_template("property.html", property_details=property_details, agent=agent)
+    else:
+        property_details = properties_collection.find({"_id": ObjectId(property_id)})
+        return render_template("property.html", property_details=property_details)
     

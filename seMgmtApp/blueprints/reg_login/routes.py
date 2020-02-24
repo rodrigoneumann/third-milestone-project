@@ -37,7 +37,7 @@ def login():
         if is_user:
             if request.form['password'] == is_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for('main.index'))
+                return redirect(url_for('properties.list_properties'))
             else:
                 flash("Incorrect username or password. Please try again.")
                 return redirect(url_for('reg_login.login'))
