@@ -164,6 +164,7 @@ ul {
     flex-direction: column;
     margin: 2rem auto auto auto;
     background-color: #fffffff7;
+    border: 1px solid rgba(0, 0, 0, 0.568);
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -225,6 +226,7 @@ ul {
 .card-box {
     margin: 0 0 1rem 0;
     border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.568);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -271,7 +273,8 @@ ul {
 }
 
 .card-description-box {
-    background-color: #FFF;
+    background-color: rgb(255, 255, 255);
+    border: 
     font-size: 25px;
     border-radius: 0 0 15px 15px;
 }
@@ -292,7 +295,7 @@ ul {
     width: 100%;
     height: 300px;
     align-items: center;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgb(0, 0, 0);
     border-radius: 15px 15px 0 0;
 }
 
@@ -326,6 +329,7 @@ ul {
 
 .property-details-box {
     border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.568);
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.16), 0 8px 15px rgba(0, 0, 0, 0.23);
     background-color: #fffffff7
