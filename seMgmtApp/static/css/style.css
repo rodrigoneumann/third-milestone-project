@@ -6,6 +6,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-image: url('../img/background.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     text-decoration: none;
