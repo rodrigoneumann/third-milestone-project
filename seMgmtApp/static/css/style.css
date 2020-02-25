@@ -48,7 +48,7 @@ ul {
     border: 1px solid rgba(128, 128, 128, 0.308);
     border-radius: 10px 10px 0 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin: 1rem auto 0 auto;
+    margin: 0 auto;
     padding: 0;
 
 }
