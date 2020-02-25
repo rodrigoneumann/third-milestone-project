@@ -92,6 +92,15 @@ ul {
     color: rgb(47, 47, 47);
 }
 
+.navbar {
+    padding-bottom: 0;
+}
+
+.navbar-toggler {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
 .navbar-color {
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
