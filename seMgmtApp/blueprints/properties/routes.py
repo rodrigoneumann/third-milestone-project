@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session, flash
 from bson.objectid import ObjectId
+import math
 from seMgmtApp.helpers import (properties_collection, dropdown_properties_type, dropdown_num_beds,
                                dropdown_num_baths, dropdown_districts)
 
@@ -20,11 +21,11 @@ def add_property():
             agent = session['username'].upper()
 
             return render_template("add_property.html",
-                                types=type_list,
-                                num_bed=num_beds_list,
-                                num_bath=num_baths_list,
-                                districts=districts_list,
-                                agent=agent)
+                                   types=type_list,
+                                   num_bed=num_beds_list,
+                                   num_bath=num_baths_list,
+                                   districts=districts_list,
+                                   agent=agent)
 
         if request.method == "POST":
             properties = properties_collection
@@ -35,6 +36,7 @@ def add_property():
     else:
         flash("You must be logged in to view this page.")
         return redirect(url_for('reg_login.login'))
+
 
 @properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
@@ -90,19 +92,35 @@ def my_ads():
             {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
         all_properties = properties_collection.find({"agent": agent})
 
-        # Sort_by_selector variable is set by dropdown in my_adds.html template
+            # Sort_by_selector variable is set by dropdown in my_adds.html template
         if sort_by_selector is None or sort_by_selector == "all_properties":
             sort_by_selector = all_properties
+            # Pagination properties counter based into sort selector choose
+            properties_pagination = all_properties.count()
         if sort_by_selector == "for_rent":
             sort_by_selector = for_rent
+            # Pagination properties counter based into sort selector choose
+            properties_pagination = for_rent.count()
         if sort_by_selector == "for_sale":
             sort_by_selector = for_sale
+            # Pagination properties counter based into sort selector choose
+            properties_pagination = for_sale.count()
 
-        return render_template("my_ads.html", sort_by_selector=sort_by_selector)
+        # Pagination
+        properties_per_page = 6
+        current_page = int(request.args.get('current_page', 1))
+        num_pages = range(1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
+        properties = sort_by_selector.skip((current_page - 1) * properties_per_page).limit(properties_per_page)
+
+        return render_template("my_ads.html", sort_by_selector=sort_by_selector,
+                                        properties=properties,
+                                        current_page=current_page,
+                                        pages=num_pages)
 
     else:
         flash("You must be logged in to view this page.")
         return redirect(url_for('reg_login.login'))
+
 
 @properties.route("/properties_list", methods=["GET", "POST"])
 def list_properties():
@@ -117,28 +135,45 @@ def list_properties():
         {"$or": [{"sale_price": {"$gt": "1"}}, {"rent_price": {"$gt": "1"}}]})
 
     # Sort_by_selector variable is set by dropdown in properties_listing.html template
+
     if sort_by_selector is None or sort_by_selector == "all_properties":
         sort_by_selector = all_properties
+        # Pagination properties counter based into sort selector choose
+        properties_pagination = all_properties.count()
     if sort_by_selector == "for_rent":
         sort_by_selector = for_rent
+        # Pagination properties counter based into sort selector choose
+        properties_pagination = for_rent.count()
     if sort_by_selector == "for_sale":
         sort_by_selector = for_sale
+        # Pagination properties counter based into sort selector choose
+        properties_pagination = for_sale.count()
+
+    # Pagination
+    properties_per_page = 6
+    current_page = int(request.args.get('current_page', 1))
+    num_pages = range(1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
+    properties = sort_by_selector.skip((current_page - 1) * properties_per_page).limit(properties_per_page)
 
     return render_template("properties_list.html",
                            sort_by_selector=sort_by_selector,
                            for_sale=for_sale,
-                           for_rent=for_rent)
+                           for_rent=for_rent,
+                           properties=properties,
+                           current_page=current_page,
+                           pages=num_pages)
 
 
 @properties.route("/property_details/<property_id>", methods=["GET", "POST"])
 def property_details(property_id):
 
-    #checks if there is a user logged in, if yes, the variable agent for checking property is rendered
+    # checks if there is a user logged in, if yes, the variable agent for checking property is rendered
     if session.get('username'):
-        property_details = properties_collection.find({"_id": ObjectId(property_id)})
+        property_details = properties_collection.find(
+            {"_id": ObjectId(property_id)})
         agent = session['username'].upper()
         return render_template("property.html", property_details=property_details, agent=agent)
     else:
-        property_details = properties_collection.find({"_id": ObjectId(property_id)})
+        property_details = properties_collection.find(
+            {"_id": ObjectId(property_id)})
         return render_template("property.html", property_details=property_details)
-    

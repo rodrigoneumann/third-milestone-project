@@ -277,8 +277,8 @@ ul {
 
 .card-description-box {
     background-color: rgb(255, 255, 255);
-    border: 
-    font-size: 25px;
+    border:
+        font-size: 25px;
     border-radius: 0 0 15px 15px;
 }
 
@@ -409,6 +409,13 @@ ul {
     background-color: #fffffff7
 }
 
+/* Pagination */
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: rgb(56, 56, 56);
+    border-color: grey
+}
 
 /* -----------------------------------
     MEDIA QUERY
