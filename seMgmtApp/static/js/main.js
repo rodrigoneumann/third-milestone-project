@@ -23,4 +23,15 @@ $(document).ready(function () {
         const selection = this.options[this.selectedIndex].value
         document.location.href = `/my_ads?search2=${selection}`
     })
+
+    /* Modals in Agent Profile */
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+
+    /* Alert fade-out */
+    $(".alert").delay(3000).slideUp(200, function() {
+        $(this).alert('close');
+    });
+
 });

@@ -37,7 +37,7 @@ def login():
         if is_user:
             if request.form['password'] == is_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for('properties.list_properties'))
+                return redirect(url_for('properties.my_ads'))
             else:
                 flash("Incorrect username or password. Please try again.")
                 return redirect(url_for('reg_login.login'))
@@ -52,3 +52,12 @@ def logout():
     # Clear session data
     session.pop('username', None)
     return redirect(url_for('main.index'))
+
+@reg_login.route("/profile/<username>", methods=["GET", "POST"])
+def change_password(username):
+
+    users_collection.update({"username": username}, {"$set": {"password": request.form.get("password")}})
+    flash(" {} your password has been updated successfully .".format(
+                username.capitalize()))
+
+    return redirect(url_for("profile.view_profile"))

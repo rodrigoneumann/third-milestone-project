@@ -1,7 +1,8 @@
 {% extends "base.html"%}
-
+{% block title %}{{ agent.capitalize() }}'s Profile | {% endblock %}
 {% block content %}
 {% for detail in agent_details %}
+
 <section class="col-12">
     <div class="container">
         <div class="row">
@@ -20,27 +21,121 @@
                 </div>
                 <div class="container">
                     <div class="agent-options-box">
-                        <div class="col-10 col-md-6 button-agent-options">
+                        <div class="col-11 col-md-6 button-agent-options">
                             <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
                                     class="btn btn-dark btn-block btn-sm mx-auto">My Ads</button></a>
                         </div>
-                        <div class="col-10 col-md-6 button-agent-options">
-                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
-                                    class="btn btn-dark btn-block btn-sm mx-auto">Change Password</button></a>
+                        <!-- Change Password Button trigger modal -->
+                        <div class="col-11 col-md-6 button-agent-options">
+                            <button type="button" class="btn btn-dark btn-block btn-sm mx-auto" data-toggle="modal"
+                                data-target="#agent_change_password">Change Password</button>
                         </div>
-                        <div class="col-10 col-md-6 button-agent-options">
-                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
-                                    class="btn btn-dark btn-block btn-sm mx-auto">Change Photo</button></a>
+                        <!-- Change Photo Button trigger modal -->
+                        <div class="col-11 col-md-6 button-agent-options">
+                            <button type="button" class="btn btn-dark btn-block btn-sm mx-auto" data-toggle="modal"
+                                data-target="#agent_change_photo">Change Photo</button>
                         </div>
-                        <div class="col-10 col-md-6 button-agent-options">
-                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
-                                    class="btn btn-dark btn-block btn-sm mx-auto">Delete Account</button></a>
+                        <!-- Delete Account Button trigger modal -->
+                        <div class="col-11 col-md-6 button-agent-options">
+                            <button type="button" class="btn btn-dark btn-block btn-sm mx-auto" data-toggle="modal"
+                                data-target="#agent_delete_account">Delete account</button>
                         </div>
+                    </div>
+                    <div class="alert alert-success d-flex justify-content-center">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <span>{{ message }}</span>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Modal Change Password -->
+<div class="modal fade" id="agent_change_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{ url_for('reg_login.change_password', username=session['username'])}}">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">Please inform the new password</div>
+                    <div class="form-group d-flex mt-3">
+                        <i class="fas fa-key password-icon"></i>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            pattern="[A-Za-z0-9_]{5,}" title="Only letters and numbers. min lengh 5 characters."
+                            required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Change Photo-->
+<div class="modal fade" id="agent_change_photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Change Photo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="d-flex justify-content-center">Please add a link to the profile photo</div>
+                    <input id="imgUrl" name="imgUrl" class="form-control mt-3" type="url" maxlength="150"
+                        placeholder="https://...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete Account-->
+<div class="modal fade" id="agent_delete_account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row m-0">When you delete your account, all your ads will also be permanently deleted.<br>Are
+                    you sure about this?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 {% endfor %}
 {% endblock %}
