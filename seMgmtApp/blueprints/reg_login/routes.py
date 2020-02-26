@@ -17,6 +17,8 @@ def register():
             users.insert_one({"username": request.form['username'].lower(),
                               "password": request.form['password']})
             session['username'] = request.form['username'].lower()
+            # Flash Alert with confirmation
+            flash("Your account was created successfully.")
             return redirect(url_for('main.index'))
         else:
             flash("Sorry, '{}' is already in use, please choose another username.".format(
@@ -53,7 +55,7 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('main.index'))
 
-@reg_login.route("/profile/<username>", methods=["GET", "POST"])
+@reg_login.route("/view_profile/<username>/change_password", methods=["GET", "POST"])
 def change_password(username):
 
     users_collection.update({"username": username}, {"$set": {"password": request.form.get("password")}})

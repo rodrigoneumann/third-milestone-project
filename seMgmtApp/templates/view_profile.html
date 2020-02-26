@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 {% block title %}{{ agent.capitalize() }}'s Profile | {% endblock %}
 {% block content %}
+
 {% for detail in agent_details %}
 
 <section class="col-12">
@@ -11,7 +12,7 @@
                     <span>Hi {{detail.username.capitalize()}}</span>
                 </div>
                 <div class="col-8 col-md-4 agent-image-box">
-                    {% if detail.imgUrl %}
+                    {% if detail.photoUrl %}
                     <img src="{{ detail.photoUrl }}" class="img-fluid details-property-img" alt="Property Image"
                         lazyload="on">
                     {% else %}
@@ -98,17 +99,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <div class="d-flex justify-content-center">Please add a link to the profile photo</div>
-                    <input id="imgUrl" name="imgUrl" class="form-control mt-3" type="url" maxlength="150"
-                        placeholder="https://...">
+            <form method="POST" action="{{ url_for('profile.change_photo', username=session['username'])}}">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="d-flex justify-content-center">Please add a link to the profile photo</div>
+                        <input id="photoUrl" name="photoUrl" class="form-control mt-3" type="url" maxlength="150"
+                            placeholder="https://...">
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success">Update</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -124,14 +127,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="row m-0">When you delete your account, all your ads will also be permanently deleted.<br>Are
-                    you sure about this?</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
+            <form method="POST" action="{{ url_for('profile.delete_account', username=session['username'])}}">
+                <div class="modal-body">
+                    <div class="row m-0">When you delete your account, all your ads will also be permanently
+                        deleted.<br>Are you sure about this?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
