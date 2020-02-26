@@ -41,15 +41,16 @@
                                 data-target="#agent_delete_account">Delete account</button>
                         </div>
                     </div>
+                    <!-- FLASH MESSAGES -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
                     <div class="alert alert-success d-flex justify-content-center">
-                        {% with messages = get_flashed_messages() %}
-                        {% if messages %}
                         {% for message in messages %}
                         <span>{{ message }}</span>
                         {% endfor %}
                         {% endif %}
-                        {% endwith %}
                     </div>
+                    {% endwith %}
                 </div>
             </div>
         </div>
@@ -79,7 +80,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </form>
         </div>
@@ -106,7 +107,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-success">Update</button>
             </div>
         </div>
     </div>

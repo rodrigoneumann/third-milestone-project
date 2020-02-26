@@ -125,7 +125,7 @@ ul {
 
 .carousel-rent {
     margin: 0 auto;
-    padding: 10px 0 2rem 0;
+    padding: 10px 0 0 0;
 }
 
 .social-buttons {
@@ -136,6 +136,7 @@ ul {
     background-color: #ffffff;
     box-shadow: 0 -4px 4px -4px black;
     padding: 0.1rem 0 0 0;
+    margin-top: 1rem;
 }
 
 .footer-copyright {
@@ -175,7 +176,7 @@ ul {
 .register-container {
     display: flex;
     flex-direction: column;
-    margin: 2rem auto auto auto;
+    margin: 1rem auto auto auto;
     background-color: #fffffff7;
     border: 1px solid rgba(0, 0, 0, 0.568);
     border-radius: 10px;
