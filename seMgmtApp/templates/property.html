@@ -71,10 +71,10 @@
                                     </li>
                                     <li class="d-flex justify-content-between py-1">
                                         <strong>Agent:</strong>
-                                        <span>{{detail.agent}}</span>
+                                        <span>{{ detail.agent }}</span>
                                     </li>
                                 </ul>
-                                <!-- Edit and delete Property button check if is ads owner  -->
+                                <!-- Edit and delete Property button check if is ads owner or Admin  -->
                                 {% if agent == detail.agent %}
                                 <div class="col-6 mx-auto">
                                     <a href={{ url_for( 'properties.edit_property', property_id = detail._id) }}><button type="submit"
