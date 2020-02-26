@@ -1,17 +1,46 @@
 {% extends "base.html"%}
 
 {% block content %}
-
+{% for detail in agent_details %}
 <section class="col-12">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-9 mx-auto my-4 profile-box">
-                <div class="title-profile">
-                    <span>OLA TESTE</span>
+                <div class="row col-12 title-profile-box">
+                    <span>Hi {{detail.username.capitalize()}}</span>
+                </div>
+                <div class="col-8 col-md-4 agent-image-box">
+                    {% if detail.imgUrl %}
+                    <img src="{{ detail.photoUrl }}" class="img-fluid details-property-img" alt="Property Image"
+                        lazyload="on">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='img/agent-no-photo.jpg') }}"
+                        class="img-fluid details-property-img" alt="Property Image" lazyload="on">
+                    {% endif %}
+                </div>
+                <div class="container">
+                    <div class="agent-options-box">
+                        <div class="col-10 col-md-6 button-agent-options">
+                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
+                                    class="btn btn-dark btn-block btn-sm mx-auto">My Ads</button></a>
+                        </div>
+                        <div class="col-10 col-md-6 button-agent-options">
+                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
+                                    class="btn btn-dark btn-block btn-sm mx-auto">Change Password</button></a>
+                        </div>
+                        <div class="col-10 col-md-6 button-agent-options">
+                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
+                                    class="btn btn-dark btn-block btn-sm mx-auto">Change Photo</button></a>
+                        </div>
+                        <div class="col-10 col-md-6 button-agent-options">
+                            <a href={{ url_for( 'properties.my_ads') }}><button type="submit"
+                                    class="btn btn-dark btn-block btn-sm mx-auto">Delete Account</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+{% endfor %}
 {% endblock %}

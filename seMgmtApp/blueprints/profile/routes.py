@@ -10,9 +10,9 @@ def view_profile():
     if session.get('username'):
         
         agent = session['username']
-
+        agent_details = users_collection.find({ "username": agent })
         
-        return render_template("view_profile.html", agent=agent)
+        return render_template("view_profile.html", agent_details=agent_details)
 
     else:
         flash("You must be logged in to view this page.")

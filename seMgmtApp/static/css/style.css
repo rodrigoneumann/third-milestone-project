@@ -419,6 +419,27 @@ ul {
     background-color: #fffffff7
 }
 
+.title-profile-box {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 0 0;
+    padding: 25px 0 10px 0 ;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.agent-image-box {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.button-agent-options {
+    margin: 10px auto;
+}
+
+.agent-options-box {
+    margin: 20px 0
+}
 /* Pagination */
 
 .page-item.active .page-link {
@@ -426,6 +447,7 @@ ul {
     background-color: rgb(56, 56, 56);
     border-color: grey
 }
+
 
 /* -----------------------------------
     MEDIA QUERY
@@ -498,11 +520,14 @@ ul {
         padding: 1rem 0 1rem 0;
     }
 
-
-    .title-carousel {
+    .title-profile-box {
         font-size: 30px;
     }
 
+    .agent-options-box {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 @media (min-width: 992px) {
