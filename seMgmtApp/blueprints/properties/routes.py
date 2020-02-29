@@ -174,10 +174,7 @@ def property_details(property_id):
             {"_id": ObjectId(property_id)})
         agent = session['username'].upper()
         
-        # Admin list
-        isAdmin = users_collection.find_one({"isAdmin": "true"},{"username": 1, "_id":0})
-        admin = list(isAdmin.values())
-        return render_template("property.html", property_details=property_details, agent=agent, admin=admin)
+        return render_template("property.html", property_details=property_details, agent=agent)
     else:
         property_details = properties_collection.find(
             {"_id": ObjectId(property_id)})
