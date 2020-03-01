@@ -10,7 +10,7 @@
     </div>
     <div class="row mx-auto px-2 mt-3 form-property">
         <div class="row col-12 justify-content-center mb-2">{{detail.address}}</div>
-        <form method="POST">
+        <form action="{{  url_for('properties.edit_property', property_id=detail._id ) }}" method="POST">
             <!-- Beds -->
             <div class="input-group mb-3">
                 <select class="custom-select" id="num_bed" name="num_bed">
@@ -31,7 +31,8 @@
             </div>
             <!-- Address -->
             <div class="form-group">
-                <input type="text" class="form-control" id="address" name="address" value="{{detail.address}}" placeholder="Address">
+                <input type="text" class="form-control" id="address" name="address" value="{{detail.address}}"
+                    placeholder="Address">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="address2" name="address2" value="{{detail.address2}}"
@@ -49,11 +50,13 @@
             <!-- City -->
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="city" name="city" value="{{detail.city}}" placeholder="City">
+                    <input type="text" class="form-control" id="city" name="city" value="{{detail.city}}"
+                        placeholder="City">
                 </div>
                 <!-- ZIPCODE -->
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="zipCode" name="zipCode" value="{{detail.zipCode}}" placeholder="Zipcode">
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" value="{{detail.zipCode}}"
+                        placeholder="Zipcode">
                 </div>
             </div>
             <!-- Description -->
@@ -80,10 +83,11 @@
                 <input type="number" min="1" step="any" name="rent_price" value="{{detail.rent_price}}" placeholder="£">
             </div>
             {% endif %}
-            <!-- Edit and delete Property button -->
+            <!-- Edit Property and cancel button -->
             <div class="edit-delete-buttons">
                 <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Update</button>
-
+                <!-- Cancel Button -->
+                <a class="btn btn-dark btn-block mb-3 mx-2" href={{ url_for( 'properties.property_details', property_id = detail._id) }}>Cancel</a>
             </div>
         </form>
     </div>

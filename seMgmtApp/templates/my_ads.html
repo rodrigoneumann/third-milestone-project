@@ -5,9 +5,20 @@
 
 <section class="col-12">
     <div class="container">
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success d-flex justify-content-center">
+            {% for message in messages %}
+            <span>{{ message }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
         <div class="row">
             <div class="input-group my-4">
-                <select class="custom-select col-md-4 ml-auto " id="sort_by_agent" name="sort_by_agent" aria-label="Sort By for agent page">
+                <select class="custom-select col-md-4 ml-auto " id="sort_by_agent" name="sort_by_agent"
+                    aria-label="Sort By for agent page">
                     <option value="" disabled selected>Sort By </option>
                     <option value="all_properties">All</option>
                     <option value="for_sale">For Sale</option>
@@ -23,15 +34,16 @@
         </div>
         <div class="row mt-4 mb-3">
             <div class="col-sm-12">
-                
+
                 <!--Pagination-->
                 <nav>
                     <ul class="pagination pagination-sm justify-content-center">
-                        
+
                         <!--Previous Page-->
                         {% if current_page | int > 1 %}
                         <li class="page-item">
-                            <a class="page-link text-secondary" href="{{ url_for('properties.list_properties', current_page=current_page-1) }}">
+                            <a class="page-link text-secondary"
+                                href="{{ url_for('properties.list_properties', current_page=current_page-1) }}">
                                 <i class="fas fa-arrow-left" aria-hidden="true"></i>
                                 <span class="sr-only">Prev</span>
                             </a>
@@ -53,11 +65,12 @@
                         </li>
                         {% endif %}
                         {% endfor %}
-                        
+
                         <!--Next Page-->
                         {% if current_page | int < pages | count | int %}
                         <li class="page-item">
-                            <a class="page-link text-secondary" href="{{ url_for('properties.list_properties', current_page=current_page+1) }}">
+                            <a class="page-link text-secondary"
+                                href="{{ url_for('properties.list_properties', current_page=current_page+1) }}">
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 <span class="sr-only">Prev</span>
                             </a>

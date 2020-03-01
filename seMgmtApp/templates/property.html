@@ -6,8 +6,18 @@
 
 <section class="col-12">
     <div class="container">
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success d-flex justify-content-center">
+            {% for message in messages %}
+            <span>{{ message }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
         <div class="row">
-            <div class="col-12 col-lg-9 mx-auto my-4 property-details-box">
+            <div class="col-12 col-lg-9 mx-auto my-3 property-details-box">
                 <div class="row col-12 details-top-box">
                     <span class="top-address col-md-6">{{detail.address}} {{detail.address2}}</span>
                     <span class="details-price col-md-6">
@@ -77,12 +87,14 @@
                                 <!-- Edit and delete Property button check if is ads owner or Admin  -->
                                 {% if agent == detail.agent %}
                                 <div class="col-6 mx-auto">
-                                    <a href={{ url_for( 'properties.edit_property', property_id = detail._id) }}><button type="submit"
+                                    <a href={{ url_for( 'properties.edit_property', property_id = detail._id) }}><button
+                                            type="submit"
                                             class="btn btn-dark btn-block btn-sm mx-auto">Edit</button></a>
                                 </div>
+                                <!-- Delete Button trigger modal -->
                                 <div class="col-6 mx-auto">
-                                    <a href={{ url_for( 'properties.delete_property', property_id = detail._id) }}><button type="submit"
-                                            class="btn btn-dark btn-block btn-sm mx-auto">Delete</button></a>
+                                    <button type="button" class="btn btn-dark btn-block btn-sm mx-auto"
+                                        data-toggle="modal" data-target="#delete-property">Delete</button>
                                 </div>
                                 {% else %}
                                 {% endif %}
@@ -105,6 +117,30 @@
         </div>
     </div>
 </section>
+
+<!-- Modal Delete Property Alert -->
+<div class="modal fade" id="delete-property" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{ url_for( 'properties.delete_property', property_id = detail._id) }}">
+                <div class="modal-body">
+                    <div class="row m-0">When you delete a property from your list, all information on it will be lost.<br>Are you sure about this?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endfor %}
 

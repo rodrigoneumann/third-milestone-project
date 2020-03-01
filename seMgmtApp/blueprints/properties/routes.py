@@ -63,14 +63,17 @@ def edit_property(property_id):
 
         properties_collection.update_one({"_id": ObjectId(property_id)}, {
                                          '$set': request.form.to_dict()})
-
-        return redirect(url_for('properties.my_ads'))
+        # Flash Alert with update confirmation
+        flash("The property details have been updated successfully.")
+        return redirect(url_for('properties.property_details', property_id=property_id))
 
 
 @properties.route("/delete_property/<property_id>", methods=["GET", "POST"])
 def delete_property(property_id):
 
     properties_collection.delete_one({"_id": ObjectId(property_id)})
+    # Flash Alert with update confirmation
+    flash("The property has been successfully deleted from your list.")
 
     return redirect(url_for('properties.my_ads'))
 
@@ -92,7 +95,7 @@ def my_ads():
             {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
         all_properties = properties_collection.find({"agent": agent})
 
-            # Sort_by_selector variable is set by dropdown in my_adds.html template
+        # Sort_by_selector variable is set by dropdown in my_adds.html template
         if sort_by_selector is None or sort_by_selector == "all_properties":
             sort_by_selector = all_properties
             # Pagination properties counter based into sort selector choose
@@ -109,13 +112,15 @@ def my_ads():
         # Pagination
         properties_per_page = 6
         current_page = int(request.args.get('current_page', 1))
-        num_pages = range(1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
-        properties = sort_by_selector.skip((current_page - 1) * properties_per_page).limit(properties_per_page)
+        num_pages = range(
+            1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
+        properties = sort_by_selector.skip(
+            (current_page - 1) * properties_per_page).limit(properties_per_page)
 
         return render_template("my_ads.html", sort_by_selector=sort_by_selector,
-                                        properties=properties,
-                                        current_page=current_page,
-                                        pages=num_pages)
+                               properties=properties,
+                               current_page=current_page,
+                               pages=num_pages)
 
     else:
         flash("You must be logged in to view this page.")
@@ -152,9 +157,10 @@ def list_properties():
     # Pagination
     properties_per_page = 6
     current_page = int(request.args.get('current_page', 1))
-    num_pages = range(1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
-    properties = sort_by_selector.skip((current_page - 1) * properties_per_page).limit(properties_per_page)
-
+    num_pages = range(
+        1, int(math.ceil(properties_pagination / properties_per_page)) + 1)
+    properties = sort_by_selector.skip(
+        (current_page - 1) * properties_per_page).limit(properties_per_page)
 
     return render_template("properties_list.html",
                            sort_by_selector=sort_by_selector,
@@ -173,10 +179,9 @@ def property_details(property_id):
         property_details = properties_collection.find(
             {"_id": ObjectId(property_id)})
         agent = session['username'].upper()
-        
         return render_template("property.html", property_details=property_details, agent=agent)
+
     else:
         property_details = properties_collection.find(
             {"_id": ObjectId(property_id)})
         return render_template("property.html", property_details=property_details)
-
