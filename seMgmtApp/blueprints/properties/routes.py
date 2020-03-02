@@ -98,7 +98,7 @@ def my_ads():
         for_sale = None
 
         # Sort_by_selector variable is set by dropdown in my_adds.html template
-        if sort_by_selector is None or sort_by_selector == "all_properties":
+        if search is None or search == "all_properties":
 
             # MongoDB Query for All properties
             all_properties = properties_collection.find({"agent": agent})
@@ -107,7 +107,7 @@ def my_ads():
             # Pagination properties counter based into sort selector choose
             properties_pagination = all_properties.count()
 
-        if sort_by_selector == "for_rent":
+        if search == "for_rent":
 
             # MongoDB Query for Rent
             for_rent = properties_collection.find(
@@ -117,7 +117,7 @@ def my_ads():
             # Pagination properties counter based into sort selector choose
             properties_pagination = for_rent.count()
 
-        if sort_by_selector == "for_sale":
+        if search == "for_sale":
 
             # MongoDB Query for Rent
             for_sale = properties_collection.find(
@@ -135,13 +135,15 @@ def my_ads():
         properties = sort_by_selector.skip(
             (current_page - 1) * properties_per_page).limit(properties_per_page)
 
-        return render_template("my_ads.html", sort_by_selector=sort_by_selector,
-                            properties=properties,
-                            current_page=current_page,
-                            agent=agent,
-                            search=search,
-                            select=select,
-                            pages=num_pages)
+        return render_template("my_ads.html",
+                           sort_by_selector=sort_by_selector,
+                           for_sale=for_sale,
+                           for_rent=for_rent,
+                           properties=properties,
+                           current_page=current_page,
+                           search=search,
+                           select=select,
+                           pages=num_pages)
 
     else:
         flash("You must be logged in to view this page.")

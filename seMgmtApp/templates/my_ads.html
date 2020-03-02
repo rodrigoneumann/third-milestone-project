@@ -43,7 +43,7 @@
                         {% if current_page | int > 1 %}
                         <li class="page-item">
                             <a class="page-link text-secondary"
-                                href="{{ url_for('properties.list_properties', current_page=current_page-1) }}">
+                                href="{{ url_for('properties.my_ads', search2=search, current_page=current_page-1) }}">
                                 <i class="fas fa-arrow-left" aria-hidden="true"></i>
                                 <span class="sr-only">Prev</span>
                             </a>
@@ -61,7 +61,7 @@
                         {% else %}
                         <li class="page-item">
                             <a class="page-link text-secondary"
-                                href="{{ url_for('properties.list_properties', current_page=page_number) }}">{{ page_number }}</a>
+                                href="{{ url_for('properties.my_ads', search2=search, current_page=page_number) }}">{{ page_number }}</a>
                         </li>
                         {% endif %}
                         {% endfor %}
@@ -70,7 +70,7 @@
                         {% if current_page | int < pages | count | int %}
                         <li class="page-item">
                             <a class="page-link text-secondary"
-                                href="{{ url_for('properties.list_properties', current_page=current_page+1) }}">
+                                href="{{ url_for('properties.my_ads', search2=search, current_page=current_page+1) }}">
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 <span class="sr-only">Prev</span>
                             </a>
