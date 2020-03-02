@@ -19,10 +19,10 @@
             <div class="input-group my-4">
                 <select class="custom-select col-md-4 ml-auto " id="sort_by_agent" name="sort_by_agent"
                     aria-label="Sort By for agent page">
-                    <option value="" disabled selected>Sort By </option>
-                    <option value="all_properties">All</option>
-                    <option value="for_sale">For Sale</option>
-                    <option value="for_rent">For Rent</option>
+                    <option value="" disabled selected>{% if not search %}Select{% else %}{{select}}{% endif %}</option>
+                    <option value="all_properties">All properties</option>
+                    <option value="for_sale">For sale</option>
+                    <option value="for_rent">For rent</option>
                 </select>
             </div>
             <div class="row col-12 mx-auto px-0 px-md-auto">

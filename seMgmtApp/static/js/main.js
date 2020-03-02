@@ -13,13 +13,11 @@ $(document).ready(function () {
 
 
     $('#sort_by').change(function () {
-        let url = null
         const selection = this.options[this.selectedIndex].value
         document.location.href = `/properties_list?search=${selection}`
     })
 
     $('#sort_by_agent').change(function () {
-        let url = null
         const selection = this.options[this.selectedIndex].value
         document.location.href = `/my_ads?search2=${selection}`
     })

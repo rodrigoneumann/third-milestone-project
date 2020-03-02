@@ -86,26 +86,44 @@ def my_ads():
         agent = session['username'].upper()
 
         # value of selection , sale, rent or all in searching dropdown
-        sort_by_selector = request.args.get('search2')
+        search = request.args.get('search2')
+        sort_by_selector = None
+        select = None
+        if search:
+            select = search.replace('_', " ").capitalize()
 
-        # MongoDB Queries for Sale, Rent or All
-        for_sale = properties_collection.find(
-            {"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
-        for_rent = properties_collection.find(
-            {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
-        all_properties = properties_collection.find({"agent": agent})
+        # Variables for type
+        all_properties = None
+        for_rent = None
+        for_sale = None
 
         # Sort_by_selector variable is set by dropdown in my_adds.html template
         if sort_by_selector is None or sort_by_selector == "all_properties":
+
+            # MongoDB Query for All properties
+            all_properties = properties_collection.find({"agent": agent})
             sort_by_selector = all_properties
+
             # Pagination properties counter based into sort selector choose
             properties_pagination = all_properties.count()
+
         if sort_by_selector == "for_rent":
+
+            # MongoDB Query for Rent
+            for_rent = properties_collection.find(
+                {"$and": [{"agent": agent}, {"rent_price": {"$gt": "1"}}]})
             sort_by_selector = for_rent
+
             # Pagination properties counter based into sort selector choose
             properties_pagination = for_rent.count()
+
         if sort_by_selector == "for_sale":
+
+            # MongoDB Query for Rent
+            for_sale = properties_collection.find(
+                {"$and": [{"agent": agent}, {"sale_price": {"$gt": "1"}}]})
             sort_by_selector = for_sale
+
             # Pagination properties counter based into sort selector choose
             properties_pagination = for_sale.count()
 
@@ -118,9 +136,12 @@ def my_ads():
             (current_page - 1) * properties_per_page).limit(properties_per_page)
 
         return render_template("my_ads.html", sort_by_selector=sort_by_selector,
-                               properties=properties,
-                               current_page=current_page,
-                               pages=num_pages)
+                            properties=properties,
+                            current_page=current_page,
+                            agent=agent,
+                            search=search,
+                            select=select,
+                            pages=num_pages)
 
     else:
         flash("You must be logged in to view this page.")
@@ -131,25 +152,32 @@ def my_ads():
 def list_properties():
 
     # value of selection , sale, rent or all in searching dropdown
-    sort_by_selector = request.args.get('search')
+    search = request.args.get('search')
+    sort_by_selector = None
+    select = None
+    if search:
+        select = search.replace('_', " ").capitalize()
 
-    # MongoDB Queries for Sale, Rent or All
-    for_sale = properties_collection.find({"sale_price": {"$gt": "1"}})
-    for_rent = properties_collection.find({"rent_price": {"$gt": "1"}})
-    all_properties = properties_collection.find(
-        {"$or": [{"sale_price": {"$gt": "1"}}, {"rent_price": {"$gt": "1"}}]})
+    # Variables for type
+    all_properties = None
+    for_rent = None
+    for_sale = None
 
     # Sort_by_selector variable is set by dropdown in properties_listing.html template
 
-    if sort_by_selector is None or sort_by_selector == "all_properties":
+    if search is None or search == "all_properties":
+        all_properties = properties_collection.find(
+            {"$or": [{"sale_price": {"$gt": "1"}}, {"rent_price": {"$gt": "1"}}]})
         sort_by_selector = all_properties
         # Pagination properties counter based into sort selector choose
         properties_pagination = all_properties.count()
-    if sort_by_selector == "for_rent":
+    if search == "for_rent":
+        for_rent = properties_collection.find({"rent_price": {"$gt": "1"}})
         sort_by_selector = for_rent
         # Pagination properties counter based into sort selector choose
         properties_pagination = for_rent.count()
-    if sort_by_selector == "for_sale":
+    if search == "for_sale":
+        for_sale = properties_collection.find({"sale_price": {"$gt": "1"}})
         sort_by_selector = for_sale
         # Pagination properties counter based into sort selector choose
         properties_pagination = for_sale.count()
@@ -168,6 +196,8 @@ def list_properties():
                            for_rent=for_rent,
                            properties=properties,
                            current_page=current_page,
+                           search=search,
+                           select=select,
                            pages=num_pages)
 
 

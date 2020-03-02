@@ -472,10 +472,6 @@ ul {
         margin-top: 6rem;
     }
 
-    .navbar-logo {
-        padding: 5rem 5rem 0 5rem;
-    }
-
     .details-top-box {
         font-size: 30px;
     }
@@ -484,6 +480,11 @@ ul {
 
 
 @media (min-width: 768px) {
+    
+    .navbar-logo {
+        padding: 5rem 5rem 0 5rem;
+    }
+
     .top-address {
         justify-content: flex-start;
     }
