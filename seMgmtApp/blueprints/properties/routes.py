@@ -32,6 +32,8 @@ def add_property():
             properties.insert_one(request.form.to_dict())
 
             # After add a new property it's redirected to my_ads page
+            # Flash Alert with confirmation
+            flash("Your Ad has been successfully added.")
             return redirect(url_for('properties.my_ads'))
     else:
         flash("You must be logged in to view this page.")
@@ -136,14 +138,14 @@ def my_ads():
             (current_page - 1) * properties_per_page).limit(properties_per_page)
 
         return render_template("my_ads.html",
-                           sort_by_selector=sort_by_selector,
-                           for_sale=for_sale,
-                           for_rent=for_rent,
-                           properties=properties,
-                           current_page=current_page,
-                           search=search,
-                           select=select,
-                           pages=num_pages)
+                               sort_by_selector=sort_by_selector,
+                               for_sale=for_sale,
+                               for_rent=for_rent,
+                               properties=properties,
+                               current_page=current_page,
+                               search=search,
+                               select=select,
+                               pages=num_pages)
 
     else:
         flash("You must be logged in to view this page.")
