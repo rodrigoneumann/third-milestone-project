@@ -28,6 +28,8 @@
             <div class="row col-12 mx-auto px-0 px-md-auto">
                 {% for property in sort_by_selector %}
                 {% include "partials/cards.html" %}
+                {% else %}
+                {% include "partials/no_results.html" %}    
                 {% endfor %}
             </div>
 
