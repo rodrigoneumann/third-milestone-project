@@ -1,3 +1,21 @@
 <div class="container col-11 col-md-9 no-result-box">
-
+    <div class="no-result-text">You haven't added any properties to your list of ads yet.</div>
+    <div class="row col-8 col-md-6 col-xl-4 no-result-image-box">
+        <img src="{{ url_for('static', filename='img/agent-no-photo.jpg') }}" class="img-fluid no-result-img"
+            alt="Property Image" lazyload="on">
+    </div>
+    <div class="container">
+        <div class="no-result-buttons-box">
+            <div class="col-11 col-md-6 no-result-buttons">
+                <a href={{ url_for( 'properties.add_property') }}>
+                <button type="button" class="btn btn-dark btn-block btn-sm mx-auto" data-toggle="modal"
+                    data-target="#agent_delete_account">Add a Property</button></a>
+            </div>
+            <div class="col-11 col-md-6 no-result-buttons">
+                <a href={{ url_for( 'main.index' ) }}>
+                <button type="button" class="btn btn-dark btn-block btn-sm mx-auto" data-toggle="modal"
+                    data-target="#agent_delete_account">Back to home</button></a>
+            </div>
+        </div>
+    </div>
 </div>

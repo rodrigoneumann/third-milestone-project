@@ -38,7 +38,6 @@ ul {
     font-size: 18px;
 }
 
-
 .banner {
     background-image: url("../img/banner.jpg");
     background-size: cover;
@@ -285,9 +284,8 @@ ul {
 }
 
 .card-description-box {
-    background-color: rgb(255, 255, 255);
-    border:
-        font-size: 25px;
+    background-color: #FFF;
+    font-size: 23px;
     border-radius: 0 0 15px 15px;
 }
 
@@ -451,15 +449,44 @@ ul {
 /* No results */
 
 .no-result-box {
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
     background-color: #FFF;
     border-radius: 15px;
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.16), 0 8px 15px rgba(0, 0, 0, 0.23);
     width: 100%;
-    height: 40vh;
-    margin: 1rem auto 0 auto;
+    height: auto;
+    padding: 1rem;
 }
 
+.no-result-text {
+    display: flex;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+
+}
+
+.no-result-image-box {
+    padding: 1rem 0 0 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.no-result-img {
+    width: 100%;
+    height: 100%;
+}
+
+.no-result-buttons-box {
+    margin: 20px 0 10px 0;
+}
+
+.no-result-buttons {
+    margin: 10px auto;
+}
 
 /* -----------------------------------
     MEDIA QUERY
@@ -552,6 +579,16 @@ ul {
     }
 
     .agent-options-box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .no-result-text {
+        font-size: 25px;
+        padding: 2rem; 
+    }
+
+    .no-result-buttons-box {
         display: flex;
         flex-wrap: wrap;
     }
