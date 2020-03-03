@@ -488,6 +488,35 @@ ul {
     margin: 10px auto;
 }
 
+/* Error Page */
+
+.error-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    justify-content: center;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.16), 0 8px 15px rgba(0, 0, 0, 0.23);
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.error-title {
+    display: flex;
+    justify-content: center;
+    font-size: 20vh;
+    font-family: "Poppins", sans-serif;
+}
+
+.error-text {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+}
+
+
 /* -----------------------------------
     MEDIA QUERY
 -------------------------------------- */
@@ -585,7 +614,7 @@ ul {
 
     .no-result-text {
         font-size: 25px;
-        padding: 2rem; 
+        padding: 2rem;
     }
 
     .no-result-buttons-box {

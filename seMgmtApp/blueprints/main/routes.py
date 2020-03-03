@@ -15,4 +15,3 @@ def index():
     return render_template("index.html",
                            for_sale=for_sale,
                            for_rent=for_rent)
-

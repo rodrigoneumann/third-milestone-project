@@ -53,6 +53,7 @@ def login():
 def logout():
     # Clear session data
     session.pop('username', None)
+    flash("You have successfully logged out. See you soon.")
     return redirect(url_for('main.index'))
 
 @reg_login.route("/view_profile/<username>/change_password", methods=["GET", "POST"])

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container col-11 col-md-8 error-box">
+        <div class="row error-title">404</div>
+        <div class="row error-text">PAGE NOT FOUND</div>
+    <a href="{{url_for('main.index')}}">
+    </a>
+</div>
+
+{% endblock %}
