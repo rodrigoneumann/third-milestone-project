@@ -39,6 +39,7 @@ def login():
         if is_user:
             if request.form['password'] == is_user['password']:
                 session['username'] = request.form['username']
+                flash("You are logged in.")
                 return redirect(url_for('properties.my_ads'))
             else:
                 flash("Incorrect username or password. Please try again.")
