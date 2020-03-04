@@ -31,11 +31,10 @@
                 <div class="row">
                     <div class="col-md-7 property-image-box">
                         {% if detail.imgUrl %}
-                        <img src="{{ detail.imgUrl }}" class="img-fluid details-property-img" alt="Property Image"
-                            lazyload="on">
+                        <img src="{{ detail.imgUrl }}" class="img-fluid details-property-img" alt="Property Image">
                         {% else %}
                         <img src="{{ url_for('static', filename='img/no-image.png') }}"
-                            class="img-fluid details-property-img" alt="Property Image" lazyload="on">
+                            class="img-fluid details-property-img" alt="Property Image">
                         {% endif %}
                     </div>
                     <div class="col-md-5">

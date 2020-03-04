@@ -2,8 +2,13 @@
 
 
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background-image: url('../img/background.jpg');
     background-attachment: fixed;
@@ -15,8 +20,12 @@ body {
 }
 
 main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 4rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
 }
 
@@ -34,6 +43,8 @@ ul {
 
 .flash_message {
     color: rgb(153, 70, 70);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 18px;
 }
@@ -46,6 +57,7 @@ ul {
     width: 100%;
     height: 250px;
     border: 1px solid rgba(0, 0, 0, 0.568);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin: 0 auto;
     padding: 0;
@@ -54,7 +66,11 @@ ul {
 
 .title-buy,
 .title-rent {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     background-color: #FFF;
     border: 1px solid rgba(0, 0, 0, 0.568);
@@ -73,6 +89,7 @@ ul {
 .carousel-item,
 .carousel-inner .carousel-item .img {
     border-top: 0;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     height: 30vh;
 }
@@ -82,6 +99,7 @@ ul {
 
 .title-carousel {
     background-color: rgba(255, 255, 255, 0.897);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 8px;
     font-size: 22px;
@@ -101,6 +119,7 @@ ul {
 
 .navbar-color {
     background-color: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -131,6 +150,7 @@ ul {
 
 .footer-main {
     background-color: #fff;
+    -webkit-box-shadow: 0 -4px 4px -4px black;
     box-shadow: 0 -4px 4px -4px black;
     padding: 0.1rem 0 0 0;
     margin-top: 1rem;
@@ -149,8 +169,13 @@ ul {
 .add-title,
 .login-title,
 .register-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-line-pack: center;
     align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 28px;
     background-color: #343a40;
@@ -171,18 +196,28 @@ ul {
 .add-property-container,
 .login-container,
 .register-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin: 1rem auto auto auto;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.568);
     border-radius: 10px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .form-property,
 .form-login {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -200,15 +235,25 @@ ul {
 
 .rent-buy-buttons,
 .edit-delete-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .add-property-button,
 .register-button,
 .login-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 }
 
@@ -241,6 +286,7 @@ ul {
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -250,6 +296,8 @@ ul {
 }
 
 .card-address-box {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-weight: bold;
     margin: 0;
@@ -257,6 +305,8 @@ ul {
 }
 
 .card-city-box {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
     padding: 2px 10px 5px 10px;
@@ -266,6 +316,8 @@ ul {
 .card-price-box {
     border: 2px solid grey;
     border-radius: 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0 15px;
     padding: 5px 3px;
@@ -290,6 +342,8 @@ ul {
 }
 
 .description-price-box {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
     padding: 5px;
@@ -304,6 +358,8 @@ ul {
 .card-img {
     width: 100%;
     height: 300px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-bottom: 1px solid rgb(0, 0, 0);
     border-radius: 15px 15px 0 0;
@@ -320,6 +376,8 @@ ul {
 
 .card-bed-box,
 .card-bath-box {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
 }
@@ -346,7 +404,11 @@ ul {
 }
 
 .details-top-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
     padding: 15px;
@@ -355,18 +417,33 @@ ul {
 }
 
 .top-address {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .details-price {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .property-name-top {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -387,7 +464,11 @@ ul {
 }
 
 .details-description-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 12px 0;
     font-family: "Poppins", sans-serif;
@@ -417,7 +498,11 @@ ul {
 }
 
 .title-profile-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 15px 0 0 0;
     padding: 25px 0 10px 0;
@@ -449,8 +534,14 @@ ul {
 /* No results */
 
 .no-result-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-flow: wrap;
     flex-flow: wrap;
     background-color: #FFF;
     border-radius: 15px;
@@ -462,6 +553,8 @@ ul {
 }
 
 .no-result-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 20px;
     font-family: "Poppins", sans-serif;
@@ -491,9 +584,16 @@ ul {
 /* Error Page */
 
 .error-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background-color: #FFF;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     border-radius: 15px;
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -504,14 +604,22 @@ ul {
 }
 
 .error-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 20vh;
     font-family: "Poppins", sans-serif;
 }
 
 .error-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 5vh;
 }
@@ -554,11 +662,15 @@ ul {
     }
 
     .top-address {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
         justify-content: flex-start;
     }
 
 
     .details-price {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
         justify-content: flex-end;
     }
 
@@ -581,6 +693,8 @@ ul {
     }
 
     .carousel-main {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 
@@ -608,7 +722,10 @@ ul {
     }
 
     .agent-options-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 
@@ -618,13 +735,18 @@ ul {
     }
 
     .no-result-buttons-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 }
 
 @media (min-width: 992px) {
     .details-top-box {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
     }
 
@@ -663,6 +785,4 @@ ul {
     .banner {
         height: 450px;
     }
-
-
 }

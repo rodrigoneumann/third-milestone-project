@@ -13,11 +13,10 @@
                 </div>
                 <div class="col-8 col-md-4 agent-image-box">
                     {% if detail.photoUrl %}
-                    <img src="{{ detail.photoUrl }}" class="img-fluid details-property-img" alt="Property Image"
-                        lazyload="on">
+                    <img src="{{ detail.photoUrl }}" class="img-fluid details-property-img" alt="Property Image">
                     {% else %}
                     <img src="{{ url_for('static', filename='img/agent-no-photo.jpg') }}"
-                        class="img-fluid details-property-img" alt="Property Image" lazyload="on">
+                        class="img-fluid details-property-img" alt="Property Image">
                     {% endif %}
                 </div>
                 <div class="container">
