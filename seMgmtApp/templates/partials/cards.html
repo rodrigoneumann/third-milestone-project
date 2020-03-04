@@ -3,10 +3,10 @@
         <div class="card-box">
             <div class="card-img">
                 {% if property.imgUrl %}
-                <img src="{{ property.imgUrl }}" class="img-fluid property-img" alt="Property Image" lazyload="on">
+                <img src="{{ property.imgUrl }}" class="img-fluid property-img" alt="Property Image">
                 {% else %}
                 <img src="{{ url_for('static', filename='img/no-image.png') }}" class="img-fluid property-img"
-                    alt="Property Image" lazyload="on">
+                    alt="Property Image">
                 {% endif %}
             </div>
 
