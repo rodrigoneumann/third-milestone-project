@@ -64,6 +64,14 @@ ul {
 
 }
 
+/* Footer Social media icons */
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-linkedin-in:hover {
+    opacity: 0.8;
+}
+
+
 .title-buy,
 .title-rent {
     display: -webkit-box;
