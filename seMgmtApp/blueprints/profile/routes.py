@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session, flash
 from bson.objectid import ObjectId
-from seMgmtApp.helpers import users_collection, properties_collection
+from semgmtapp.helpers import users_collection, properties_collection
 
 profile = Blueprint("profile", __name__)
 

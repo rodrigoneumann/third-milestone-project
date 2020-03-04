@@ -1,6 +1,6 @@
 from flask import Flask
-from seMgmtApp.ext.database import mongo
-from seMgmtApp.config import Config
+from semgmtapp.ext.database import mongo
+from semgmtapp.config import Config
 
 
 def create_app(config_class=Config):
@@ -10,11 +10,11 @@ def create_app(config_class=Config):
 
 
     # Routes
-    from seMgmtApp.blueprints.reg_login.routes import reg_login
-    from seMgmtApp.blueprints.main.routes import main
-    from seMgmtApp.blueprints.properties.routes import properties
-    from seMgmtApp.blueprints.profile.routes import profile
-    from seMgmtApp.blueprints.errors.routes import errors
+    from semgmtapp.blueprints.reg_login.routes import reg_login
+    from semgmtapp.blueprints.main.routes import main
+    from semgmtapp.blueprints.properties.routes import properties
+    from semgmtapp.blueprints.profile.routes import profile
+    from semgmtapp.blueprints.errors.routes import errors
     app.register_blueprint(reg_login)
     app.register_blueprint(main)
     app.register_blueprint(properties)

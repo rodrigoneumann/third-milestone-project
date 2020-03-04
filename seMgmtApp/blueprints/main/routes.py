@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, redirect, session
-from seMgmtApp.helpers import (properties_collection)
+from semgmtapp.helpers import properties_collection
 
 #Blueprint
 main = Blueprint("main", __name__)
@@ -9,8 +9,8 @@ main = Blueprint("main", __name__)
 def index():
 
     # MongoDB Queries for Sale, Rent or All for carousel - show only ads with image
-    for_sale = properties_collection.find({"$and": [{'imgUrl': { "$ne": "" }}, {"sale_price": {"$gt": "1"}}]}).limit(5)
-    for_rent = properties_collection.find({"$and": [{'imgUrl': { "$ne": "" }}, {"rent_price": {"$gt": "1"}}]}).limit(5)
+    for_sale = properties_collection.find({"$and": [{'imgUrl': { "$ne": "" }}, {"sale_price": {"$gt": "1"}}]}).limit(4)
+    for_rent = properties_collection.find({"$and": [{'imgUrl': { "$ne": "" }}, {"rent_price": {"$gt": "1"}}]}).limit(4)
 
     return render_template("index.html",
                            for_sale=for_sale,

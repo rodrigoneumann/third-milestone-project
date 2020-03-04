@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, Blueprint, session, flash
-from seMgmtApp.helpers import users_collection
+from semgmtapp.helpers import users_collection
 
 # Blueprint
 reg_login = Blueprint("reg_login", __name__)

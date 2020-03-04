@@ -1,5 +1,5 @@
 from bson.objectid import ObjectId
-from seMgmtApp.ext.database import mongo
+from semgmtapp.ext.database import mongo
 
 #DB Collections
 properties_collection = mongo.db.properties

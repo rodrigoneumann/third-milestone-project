@@ -1,6 +1,6 @@
 import os
-from seMgmtApp import create_app
-from seMgmtApp.config import Config
+from semgmtapp import create_app
+from semgmtapp.config import Config
 
 app = create_app()
 

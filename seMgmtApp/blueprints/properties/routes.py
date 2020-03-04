@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session, flash
 from bson.objectid import ObjectId
 import math
-from seMgmtApp.helpers import (users_collection, properties_collection, dropdown_properties_type, dropdown_num_beds,
+from semgmtapp.helpers import (users_collection, properties_collection, dropdown_properties_type, dropdown_num_beds,
                                dropdown_num_baths, dropdown_districts)
 
 
