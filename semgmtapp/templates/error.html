@@ -1,12 +1,26 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
+    <title>Error</title>
+</head>
 
-<div class="container col-11 col-md-8 error-box">
+<body>
+    <div class="container col-11 col-md-8 error-box">
         <div class="row error-title">404</div>
         <div class="row error-text">PAGE NOT FOUND</div>
-    <a href="{{url_for('main.index')}}">
-    </a>
-</div>
+        <a href="{{url_for('main.index')}}">
+            <span class="col-lg-8 btn btn-dark btn-block btn-sm my-2 mx-auto">Click here
+                to return to the main page</span>
+        </a>
+    </div>
+</body>
 
-{% endblock %}
+</html>
