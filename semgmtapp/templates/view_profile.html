@@ -68,7 +68,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="{{ url_for('reg_login.change_password', username=session['username'])}}">
+            <form method="POST" action="{{ url_for('profile.change_password', username=session['username'])}}">
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">Please inform the new password</div>
                     <div class="form-group d-flex mt-3">
