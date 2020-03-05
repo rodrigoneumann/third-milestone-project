@@ -79,3 +79,28 @@ def delete_account(username):
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
     return redirect(url_for("reg_login.login"))
+
+
+@profile.route("/view_profile/<username>/change_password", methods=["GET", "POST"])
+def change_password(username):
+
+    # Check if there is a session
+    if session:
+        # Check if session user is the account owner
+        if session["username"] == username:
+            users_collection.update(
+                {"username": username},
+                {"$set": {"password": request.form.get("password")}},
+            )
+            flash(
+                " {} your password has been updated successfully .".format(
+                    username.capitalize()
+                )
+            )
+            return redirect(url_for("profile.view_profile"))
+        flash("You must be the account owner to change the password")
+        return redirect(url_for("properties.my_ads"))
+
+    # If not logged in, redirect to login page
+    flash("You must be logged in to view this page.")
+    return redirect(url_for("reg_login.login"))
