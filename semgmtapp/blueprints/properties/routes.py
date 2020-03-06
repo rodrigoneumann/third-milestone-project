@@ -46,7 +46,7 @@ def add_property():
             return redirect(url_for("properties.my_ads"))
 
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
@@ -97,7 +97,7 @@ def edit_property(property_id):
         return redirect(url_for("properties.my_ads"))
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @properties.route("/delete_property/<property_id>", methods=["GET", "POST"])
@@ -120,7 +120,7 @@ def delete_property(property_id):
         return redirect(url_for("properties.my_ads"))
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @properties.route("/my_ads", methods=["GET", "POST"])
@@ -199,7 +199,7 @@ def my_ads():
         )
 
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @properties.route("/properties_list", methods=["GET", "POST"])

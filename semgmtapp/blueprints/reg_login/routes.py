@@ -47,7 +47,7 @@ def register():
     flash(
         "You cannot register another account while logged in, Please log out and try again"
     )
-    return redirect(url_for("properties.my_ads"))
+    return redirect(url_for("main.index"))
 
 
 @reg_login.route("/login", methods=["POST", "GET"])
@@ -67,19 +67,19 @@ def login():
 
                 flash("Incorrect username or password. Please try again.")
                 return redirect(url_for("reg_login.login"))
-            else:
-                flash(
-                    "Username {} is not yet registered.".format(
-                        request.form["username"].upper()
-                    )
+
+            flash(
+                "Username {} is not yet registered.".format(
+                    request.form["username"].upper()
                 )
+            )
         return render_template("login.html")
 
     # Session Alert
     flash(
-        "You cannot access the login display while logged in, Please log out and try again"
+        "You cannot access the login page while logged in, Please log out and try again"
     )
-    return redirect(url_for("properties.my_ads"))
+    return redirect(url_for("main.index"))
 
 
 @reg_login.route("/logout")

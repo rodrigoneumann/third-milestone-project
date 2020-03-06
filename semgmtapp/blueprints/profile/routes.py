@@ -26,7 +26,7 @@ def view_profile():
         )
 
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @profile.route("/view_profile/<username>/change_photo", methods=["GET", "POST"])
@@ -47,11 +47,11 @@ def change_photo(username):
             )
             return redirect(url_for("profile.view_profile"))
 
-        flash("You must be the profile owner to update that")
+        flash("You must be the profile owner to update the photo")
         return redirect(url_for("properties.my_ads"))
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @profile.route("/view_profile/<username>/delete_account", methods=["GET", "POST"])
@@ -78,7 +78,7 @@ def delete_account(username):
         return redirect(url_for("properties.my_ads"))
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
 
 
 @profile.route("/view_profile/<username>/change_password", methods=["GET", "POST"])
@@ -103,4 +103,4 @@ def change_password(username):
 
     # If not logged in, redirect to login page
     flash("You must be logged in to view this page.")
-    return redirect(url_for("reg_login.login"))
+    return redirect(url_for("main.index"))
