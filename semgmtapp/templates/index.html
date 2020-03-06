@@ -72,7 +72,7 @@
                         {% for item in for_rent %}
                         <div class="carousel-item img-fluid {% if loop.index == 1 %} active {% else %}{% endif %}">
                             <a href="{{ url_for('properties.property_details', property_id=item._id)}}">
-                                <img class="d-block w-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
+                                <img class="d-block w-100 h-100" src="{{ item.imgUrl }}" alt="Property for sale"></a>
                             <div class="carousel-caption d-md-block">
                                 <span class="title-carousel">{{ item.address }}</span>
                             </div>
