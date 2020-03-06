@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse text-right" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('properties.list_properties') }}">All Properties</a>
             </li>
             <!-- Check if there is a user logged in and show personal page -->
