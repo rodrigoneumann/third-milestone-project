@@ -18,68 +18,68 @@ reg_login = Blueprint("reg_login", __name__)
 def register():
 
     # Check if there is an active session, if not, continue
-    if not session:
-        # User registration - check user/password
-        if request.method == "POST":
-            users = users_collection
-            is_user = users.find_one({"username": request.form["username"].lower()})
-            if not is_user:
-                users.insert_one(
-                    {
-                        "username": request.form["username"].lower(),
-                        "password": request.form["password"],
-                    }
-                )
-                session["username"] = request.form["username"].lower()
-                # Flash Alert with confirmation
-                flash("Your account was created successfully.")
-                return redirect(url_for("main.index"))
-            else:
-                flash(
-                    "Sorry, '{}' is already in use, please choose another username.".format(
-                        request.form["username"].upper()
-                    )
-                )
-            return redirect(url_for("reg_login.register"))
+    if session:
+        # Session Alert
+        flash(
+            "You cannot register another account while logged in, Please log out and try again"
+        )
+        return redirect(url_for("main.index"))
 
-        return render_template("register.html")
-    # Session Alert
-    flash(
-        "You cannot register another account while logged in, Please log out and try again"
-    )
-    return redirect(url_for("main.index"))
+    # User registration - check user/password
+    if request.method == "POST":
+        users = users_collection
+        is_user = users.find_one({"username": request.form["username"].lower()})
+        if not is_user:
+            users.insert_one(
+                {
+                    "username": request.form["username"].lower(),
+                    "password": request.form["password"],
+                }
+            )
+            session["username"] = request.form["username"].lower()
+            # Flash Alert with confirmation
+            flash("Your account was created successfully.")
+            return redirect(url_for("properties.my_ads"))
+        else:
+            flash(
+                "Sorry, '{}' is already in use, please choose another username.".format(
+                    request.form["username"].upper()
+                )
+            )
+
+    return render_template("register.html")
 
 
 @reg_login.route("/login", methods=["POST", "GET"])
 def login():
 
     # Check if there is an active session, if not, continue
-    if not session:
-        if request.method == "POST":
-            users = users_collection
-            is_user = users.find_one({"username": request.form["username"].lower()})
+    if session:
+        # Session Alert
+        flash(
+            "You cannot access the login page while logged in, Please log out and try again"
+        )
+        return redirect(url_for("main.index"))
 
-            if is_user:
-                if request.form["password"] == is_user["password"]:
-                    session["username"] = request.form["username"]
-                    flash("You are logged in.")
-                    return redirect(url_for("properties.my_ads"))
+    if request.method == "POST":
+        users = users_collection
+        is_user = users.find_one({"username": request.form["username"].lower()})
 
-                flash("Incorrect username or password. Please try again.")
-                return redirect(url_for("reg_login.login"))
+        if is_user:
+            if request.form["password"] == is_user["password"]:
+                session["username"] = request.form["username"]
+                flash("You are logged in.")
+                return redirect(url_for("properties.my_ads"))
 
+            flash("Incorrect Password. Please try again.")
+
+        else:
             flash(
                 "Username {} is not yet registered.".format(
                     request.form["username"].upper()
                 )
             )
-        return render_template("login.html")
-
-    # Session Alert
-    flash(
-        "You cannot access the login page while logged in, Please log out and try again"
-    )
-    return redirect(url_for("main.index"))
+    return render_template("login.html")
 
 
 @reg_login.route("/logout")
