@@ -28,8 +28,12 @@
                 {% endif %}
             </div>
             {% endwith %}
-            <div class="login-button mt-1 mb-4">
+            <div class="login-button mt-1 mb-2">
                 <button type="submit" class="btn btn-dark"><i class="fas fa-sign-in-alt fa-sm"></i> Log in</button>
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                <span>No account yet? <a href="{{ url_for('reg_login.register')}}"><strong>Click
+                            here to register</strong></a></span>
             </div>
         </form>
     </div>
