@@ -51,11 +51,13 @@
             <!-- Address -->
             <div class="form-group">
                 <input type="text" class="form-control" id="address" name="address" style="text-transform: capitalize;"
-                    placeholder="Address" required>
+                    placeholder="Address" pattern="[A-Za-z0-9_]{3,}"
+                    title="Only letters and numbers. min lengh 3 characters." required>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="address2" name="address2"
-                    style="text-transform: capitalize;" placeholder="Apartment, studio or floor number">
+                    style="text-transform: capitalize;" placeholder="Apartment, studio or floor number"
+                    pattern="[A-Za-z0-9_]{2,}" title="Only letters and numbers. min lengh 2 characters.">
             </div>
             <!-- District -->
             <div class="input-group mb-3">
@@ -69,11 +71,13 @@
             <!-- City -->
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="City"
+                        pattern="[A-Za-z]{3,}" title="Only letters. min lengh 3 characters." required>
                 </div>
                 <!-- ZIPCODE -->
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zipcode" required>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Postcode"
+                        pattern="[A-Za-z0-9_]{6,7}" title="Only UK format Postcode e.g PO3 5LW" required>
                 </div>
             </div>
             <!-- Description -->
@@ -105,8 +109,7 @@
             <div class="add-property-button">
                 <button type="submit" class="btn btn-dark btn-block mb-3 mx-2">Add</button>
                 <!-- Cancel Button -->
-                <a class="btn btn-dark btn-block mb-3 mx-2"
-                    href={{ url_for( 'properties.my_ads') }}>Cancel</a>
+                <a class="btn btn-dark btn-block mb-3 mx-2" href={{ url_for( 'properties.my_ads') }}>Cancel</a>
             </div>
         </form>
     </div>
