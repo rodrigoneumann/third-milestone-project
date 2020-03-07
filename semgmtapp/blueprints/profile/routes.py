@@ -16,7 +16,7 @@ profile = Blueprint("profile", __name__)
 @profile.route("/view_profile", methods=["GET", "POST"])
 def view_profile():
     """ 
-    View Profile Page
+    READ - View Profile Page
     
     First check if there is a session active and them display the user profile page
     if not, return a message for the user and return to the index.  
@@ -37,7 +37,7 @@ def view_profile():
 @profile.route("/view_profile/<username>/change_photo", methods=["GET", "POST"])
 def change_photo(username):
     """ 
-    Change an user profile Photo 
+    UPDATE - Change an user profile Photo 
     
     First check if there is an active session, if the user is the owner of the profile and then then send the new link to the user's photo in database.
     Then a confirmation message is displayed.
@@ -68,7 +68,7 @@ def change_photo(username):
 @profile.route("/view_profile/<username>/delete_account", methods=["GET", "POST"])
 def delete_account(username):
     """ 
-    Delete an user account
+    DELETE an user account from the database
 
     First check if there is an active session, and confirms if the user is the owner of the profile link.
     After the modal confirmation the account and all ads created by the user will be deleted from the database. 
@@ -101,7 +101,7 @@ def delete_account(username):
 @profile.route("/view_profile/<username>/change_password", methods=["GET", "POST"])
 def change_password(username):
     """ 
-    Change an user password 
+    UPDATE - Change an user password 
     
     First check if there is an active session, if the user is the owner of the profile and then updates the new password for the database .
     Then a confirmation message is displayed.
