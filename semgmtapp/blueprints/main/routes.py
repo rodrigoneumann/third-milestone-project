@@ -8,6 +8,7 @@ main = Blueprint("main", __name__)
 @main.route("/", methods=["GET", "POST"])
 @main.route("/index", methods=["GET", "POST"])
 def index():
+    """ Home page with 2 carousels - for rent and for sale. """
 
     # MongoDB Queries for Sale, Rent or All for carousel - show only ads with image
     for_sale = properties_collection.find(
