@@ -1,12 +1,12 @@
 <div align="center">
-<img src="https://i.ibb.co/TMJBBzS/readme-img.png" alt="Swift Estates">
+<img src="https://github.com/rodrigoneumann/third-milestone-project/raw/master/semgmtapp/static/img/readme-img.png" target="_blank" rel="noopener" alt="Swift Estates">
 <h2>Swift Estates Property Management</h2>
 </div>
 
 This property management platform was designed with the main purpose of being a tool that allows the easy management and visualization of properties for agents of a real estate agency in the Portsmouth-Uk and nearby locations.
 On the platform, the registered agent will be able to add, edit and delete the properties that have been added by him and will be able to view all the properties added by other agents, whether for sale or rent. Which greatly facilitates the real estate agency's internal work.
 It is also possible for the agent to manage their profile on the platform, such as changing their password, changing their photo or even deleting their registration.
-You can access the platform [here.](https://swift-estates.herokuapp.com)
+####You can access the platform [here.](https://swift-estates.herokuapp.com)
 
 
 ## Table of Contents
