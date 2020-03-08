@@ -10,13 +10,15 @@ It is also possible for the agent to manage their profile on the platform, such 
 
 
 ## Table of Contents
-1. [**UX**](#ux)
-    - [**User Stories**](#user-stories)
-    - [**Design**](#design)
-        - [**Colours**](#Colours)
-        - [**Typography**](#Typography)
-        - [**Icons**](#Icons)
-    - [**Wireframes**](#wireframes)
+- [Table of Contents](#table-of-contents)
+- [UX](#ux)
+  - [User Stories](#user-stories)
+    - [As a user of this platform, I will be able to:](#as-a-user-of-this-platform-i-will-be-able-to)
+  - [Design](#design)
+    - [Typography](#typography)
+    - [Colours](#colours)
+    - [Icons](#icons)
+  - [Wireframes](#wireframes)
 
 2. [**Features**](#features)
     - [**Existing Features**](#existing-features)
@@ -57,12 +59,34 @@ It is also possible for the agent to manage their profile on the platform, such 
 - View the latest properties for sale and rental on the home page in carousels, and be able to access them directly through it.
 - Filter and view all my ads, for sale or rent.
 
-#### Design
+### Design
+This project was developed with a focus on a mobile approach first. However, with full responsiveness on other screen sizes.
+I used the grids, nav, carousel and bootstrap colors in this project.
+The main idea for the design of this project was to have a serious and professional appearance at the same time, with light colors, a box with rounded corners and soft shadows, which convey sophistication and provide a pleasant user experience.
+
+#### Typography
+
+- The main font used in this project is **Robotto**. I think that's a well designed and easy to read font. An extra reason for using this font is the excellent display on small screens.
+- In the main titles of the site, the font **Poppins** was used, which also has a good design and combines nicely with the main font.
 
 
-**Typography**
+#### Colours
 
+- In the color scheme I used shades that favored the easy visualization of the information.
+- In the navbar and footer I used the white background with letters in a dark gray tone, giving a greater contrast for logo information and menu options. As well as a light shadow in the division with the Body.
+- In the background I used an image of the wooden floor with a slight change in opacity to make it a little lighter.
+- In the boxes for adding and editing properties, login and user registration, a title with a dark gray background with white letters was used to give greater contrast.
+- The buttons have a dark tone with white letters and black borders, making an interesting effect.
+- Some images with white dolls were used in the user's standard photo and when the user has not yet included any ad.
 
+#### Icons
 
-**Colours**
+The icons used in this project are provided by [Font Awesome](https://fontawesome.com/).
+They were used in the advertising cards and in the project footer.
 
+### Wireframes
+
+These wireframes were designed with Balsamiq Mockups 3. These were the first version of scope and some minor things have changed during the development for the final version.
+* Mobile displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_mobile.png)
+* Medium displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_tablet.png)
+* Large displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_desktop.png)

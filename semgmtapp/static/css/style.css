@@ -84,6 +84,7 @@ ul {
     border: 1px solid rgba(0, 0, 0, 0.568);
     border-bottom: 0;
     color: rgb(0, 0, 0);
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
     margin: 0;
@@ -392,8 +393,7 @@ ul {
 
 .bed-icon,
 .bath-icon {
-    color: rgb(18, 18, 107);
-    margin-right: 15px;
+    margin-right: 10px;
     padding-top: 5px;
 }
 
@@ -667,6 +667,11 @@ ul {
         display: flex;
     }
 
+    .carousel {
+        border: 1px solid rgba(0, 0, 0, 0.568);
+        border-top: 0
+    }
+
     .carousel-inner,
     .carousel-item,
     .carousel-inner .carousel-item .img {
@@ -711,11 +716,6 @@ ul {
     .title-buy,
     .title-rent {
         border-radius: 10px 10px 0 0;
-    }
-
-    .carousel {
-        border: 1px solid rgba(0, 0, 0, 0.568);
-        border-top: 0
     }
 
     .carousel-buy {
