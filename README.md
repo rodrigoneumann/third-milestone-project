@@ -6,7 +6,7 @@
 This property management platform was designed with the main purpose of being a tool that allows the easy management and visualization of properties for agents of a real estate agency in the Portsmouth-Uk and nearby locations.
 On the platform, the registered agent will be able to add, edit and delete the properties that have been added by him and will be able to view all the properties added by other agents, whether for sale or rent. Which greatly facilitates the real estate agency's internal work.
 It is also possible for the agent to manage their profile on the platform, such as changing their password, changing their photo or even deleting their registration.
-####You can access the platform [here.](https://swift-estates.herokuapp.com)
+#### You can access the platform [here.](https://swift-estates.herokuapp.com)
 
 
 ## Table of Contents
@@ -19,6 +19,9 @@ It is also possible for the agent to manage their profile on the platform, such 
     - [Colours](#colours)
     - [Icons](#icons)
   - [Wireframes](#wireframes)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Features Left to Implement](#features-left-to-implement)
 
 2. [**Features**](#features)
     - [**Existing Features**](#existing-features)
@@ -81,8 +84,8 @@ The main idea for the design of this project was to have a serious and professio
 
 #### Icons
 
-The icons used in this project are provided by [Font Awesome](https://fontawesome.com/).
-They were used in the advertising cards and in the project footer.
+The icons used in this project are provided by [Font Awesome 5.12.1](https://fontawesome.com/).
+They were used in the advertising cards and in the footer.
 
 ### Wireframes
 
@@ -90,3 +93,11 @@ These wireframes were designed with Balsamiq Mockups 3. These were the first ver
 * Mobile displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_mobile.png)
 * Medium displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_tablet.png)
 * Large displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_desktop.png)
+
+## Features
+
+### Existing Features
+
+### Features Left to Implement
+
+

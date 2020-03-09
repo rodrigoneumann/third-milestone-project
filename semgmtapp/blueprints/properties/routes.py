@@ -16,12 +16,14 @@ properties = Blueprint("properties", __name__)
 
 @properties.route("/add_property", methods=["GET", "POST"])
 def add_property():
-    """ 
+    """
     CREATE - Add a New Property
-    
-    First check if there is an active session, if the user is the owner of the profile.
-    Get all form data and submit to database, a confirmation message is displayed and redirect to my_ads page.
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    First check if there is an active session,
+    if the user is the owner of the profile.
+    Get all form data and submit to database,
+    a confirmation message is displayed and redirect to my_ads page.
+    If there is no active session, an error message will be displayed
+    and forwarded to the index.
     """
     # Check if there is a session
     if session.get("username"):
@@ -57,13 +59,14 @@ def add_property():
 
 @properties.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
-    """ 
+    """
     UPDATE - Edit a property
-    
-    First check if there is an active session, if the user is the owner of the ads.
+    First check if there is an active session,
+    if the user is the owner of the ads.
     Get all property data and from database and display for the user.
-    After changes, the form data is updated to DB and redirected to my_ads page with a confirmation message
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    After changes, the form data is updated to DB and redirected to my_ads page
+    If there is no active session, an error message will be displayed
+    and forwarded to the index.
     """
     # Check if there is a session
     if session:
@@ -115,12 +118,14 @@ def edit_property(property_id):
 
 @properties.route("/delete_property/<property_id>", methods=["GET", "POST"])
 def delete_property(property_id):
-    """ 
+    """
     DELETE - Delete a property from database
-    
     First check if there is an active session, if the user is the owner of ads.
-    After confirmation modal message, user can delete the property from the database, and redirected to my_ads page with a confirmation message
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    After confirmation modal message,
+    user can delete the property from the database, and redirected to my_ads
+    with a confirmation message
+    If there is no active session, an error message will be displayed
+    and forwarded to the index.
     """
     # Check if there is a session
     if session:
@@ -146,12 +151,14 @@ def delete_property(property_id):
 def my_ads():
     """
     READ - Display the session user properties added on the platform.
-    
     First check if there is an active session.
     Get and display all the ads from that logged in user.
-    There are three options for viewing the properties from the dropdown selector: For sale, For rent or All.
-    Six properties will be displayed per page and the page selector will be displayed right below the ads.
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    There are three options for viewing the properties in the dropdown selector
+    For sale, For rent or All.
+    Six properties will be displayed per page
+    and the page selector will be displayed right below the ads.
+    If there is no active session, an error message will be displayed
+    and forwarded to the index.
     """
     # Only the ads of the logged-in agent will be displayed.
     # All ads on MY_ADS page will have the EDIT and DELETE buttons enabled
@@ -233,12 +240,13 @@ def my_ads():
 def list_properties():
     """
     READ - Display all properties added on the platform.
-    
     Get and display all the ads from the database
-    There are three options for viewing the properties from the dropdown selector: For sale, For rent or All.
-    Six properties will be displayed per page and the page selector will be displayed right below the ads.
+    There are three options for viewing the properties in the dropdown selector
+    For sale, For rent or All.
+    Six properties will be displayed per page
+    and the page selector will be displayed right below the ads.
     """
-    # Authentication is not necessary, the list of ads will be displayed to all users.
+    # Authentication is not necessary, the list of ads displayed to all users.
 
     # value of selection , sale, rent or all in searching dropdown
     search = request.args.get("search")
@@ -252,7 +260,7 @@ def list_properties():
     for_rent = None
     for_sale = None
 
-    # Sort_by_selector variable is set by dropdown in properties_listing.html template
+    # Sort_by_selector variable is set by dropdown in properties_listing.html
 
     if search is None or search == "all_properties":
         all_properties = properties_collection.find(
@@ -299,11 +307,12 @@ def list_properties():
 def property_details(property_id):
     """
     READ - Display ads individually with all data
-    
     Displays the data and a specific ad by ID.
-    The user's session is also checked so that the EDIT and DELETE buttons are rendered or not in the case of the ad owner.
+    The user's session is also checked so that the EDIT and DELETE buttons are
+    rendered or not in the case of the ad owner.
     """
-    # checks if there is a user logged in, if yes, the variable agent for check property is rendered
+    # checks if there is a user logged in, if yes,
+    # the variable agent for check property is rendered
     if session.get("username"):
         property_details = properties_collection.find({"_id": ObjectId(property_id)})
         agent = session["username"].upper()

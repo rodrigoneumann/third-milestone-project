@@ -15,11 +15,10 @@ profile = Blueprint("profile", __name__)
 
 @profile.route("/view_profile", methods=["GET", "POST"])
 def view_profile():
-    """ 
+    """
     READ - View Profile Page
-    
-    First check if there is a session active and them display the user profile page
-    if not, return a message for the user and return to the index.  
+    Check if there is a session active and them display the user profile page
+    if not, return a message for the user and return to the index.
     """
     if session.get("username"):
 
@@ -36,12 +35,14 @@ def view_profile():
 
 @profile.route("/view_profile/<username>/change_photo", methods=["GET", "POST"])
 def change_photo(username):
-    """ 
-    UPDATE - Change an user profile Photo 
-    
-    First check if there is an active session, if the user is the owner of the profile and then then send the new link to the user's photo in database.
+    """
+    UPDATE - Change an user profile Photo
+    First check if there is an active session and then
+    if the user is the owner of the profile and then then send the new link to
+    the user's photo in database.
     Then a confirmation message is displayed.
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    If there is no active session, an error message will be displayed and
+    forwarded to the index.
     """
     # Check if there is a session
     if session:
@@ -67,12 +68,14 @@ def change_photo(username):
 
 @profile.route("/view_profile/<username>/delete_account", methods=["GET", "POST"])
 def delete_account(username):
-    """ 
+    """
     DELETE an user account from the database
-
-    First check if there is an active session, and confirms if the user is the owner of the profile link.
-    After the modal confirmation the account and all ads created by the user will be deleted from the database. 
-    Session data from that user is cleared from the browser and confirmation message is displayed
+    First check if there is an active session,
+    and confirms if the user is the owner of the profile link.
+    After the modal confirmation the account
+    and all ads created by the user will be deleted from the database.
+    Session data from that user is cleared from the browser
+    and confirmation message is displayed
     """
     # Check if there is a session
     if session:
@@ -100,12 +103,14 @@ def delete_account(username):
 
 @profile.route("/view_profile/<username>/change_password", methods=["GET", "POST"])
 def change_password(username):
-    """ 
-    UPDATE - Change an user password 
-    
-    First check if there is an active session, if the user is the owner of the profile and then updates the new password for the database .
+    """
+    UPDATE - Change an user password
+    First check if there is an active session,
+    if the user is the owner of the profile and then
+    updates the new password for the database.
     Then a confirmation message is displayed.
-    If there is no active session, an error message will be displayed and forwarded to the index.
+    If there is no active session,
+    an error message will be displayed and forwarded to the index.
     """
     # Check if there is a session
     if session:

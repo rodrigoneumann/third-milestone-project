@@ -13,22 +13,22 @@ $(document).ready(function () {
 
 
     $('#sort_by').change(function () {
-        const selection = this.options[this.selectedIndex].value
-        document.location.href = `/properties_list?search=${selection}`
-    })
+        const selection = this.options[this.selectedIndex].value;
+        document.location.href = `/properties_list?search=${selection}`;
+    });
 
     $('#sort_by_agent').change(function () {
-        const selection = this.options[this.selectedIndex].value
-        document.location.href = `/my_ads?search2=${selection}`
-    })
+        const selection = this.options[this.selectedIndex].value;
+        document.location.href = `/my_ads?search2=${selection}`;
+    });
 
     /* Modals in Agent Profile */
     $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
+        $('#myInput').trigger('focus');
+    });
 
     /* Alert fade-out */
-    $(".alert").delay(3000).slideUp(200, function() {
+    $(".alert").delay(3000).slideUp(200, function () {
         $(this).alert('close');
     });
 
