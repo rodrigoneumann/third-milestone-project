@@ -25,9 +25,9 @@ It is also possible for the agent to manage their profile on the platform, such 
       - [**Register a new agent**](#register-a-new-agent)
       - [**Agent Login**](#agent-login)
       - [**Agent Profile**](#agent-profile)
-      - [**Update Photo**](#update-photo)
-      - [**Update Password**](#update-password)
-      - [**Delete Account**](#delete-account)
+        - [**Update Photo**](#update-photo)
+        - [**Update Password**](#update-password)
+        - [**Delete Account**](#delete-account)
       - [**Listing ads**](#listing-ads)
       - [**Add a new property**](#add-a-new-property)
       - [**Update a property**](#update-a-property)
@@ -56,7 +56,6 @@ It is also possible for the agent to manage their profile on the platform, such 
 8. [**Acknowledgements**](#acknowledgements)
 
 
----
 
 # UX
 
@@ -117,7 +116,7 @@ These wireframes were designed with Balsamiq Mockups 3. These were the first ver
 
 All pages have the navigation bar with the logo and all visible links and footer.
 
-* **Unregistered user**
+* **User not logged into the platform**
 <div align="center">
 <img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/visitor.png" target="_blank" rel="noopener" alt="Swift Estates">
 </div>
@@ -125,7 +124,7 @@ All pages have the navigation bar with the logo and all visible links and footer
 If the access is made by an unregistered user it will be able to view the main page with both carousels with the latest ads registered for sale and for rent. this visitor can also access the link to view all ads registered on the platform.
 The user registration and login link will also be visible to the visitor.
 
-* **Registered user**
+* **User logged into the platform**
 <div align="center">
 <img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/logged_user.png" target="_blank" rel="noopener" alt="Swift Estates">
 </div>
@@ -134,7 +133,7 @@ A logged-in agent will have access links to add a new property, my ads, profile 
 
 ### Register a new agent
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/register.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/register.png" target="_blank" rel="noopener" width="400" alt="Swift Estates">
 </div>
 
 **CRUD - CREATE**
@@ -144,7 +143,7 @@ It is also necessary that the username and password have more than 5 alphanumeri
 
 ### Agent Login
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/login.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/login.png" target="_blank" rel="noopener" width="400" alt="Swift Estates">
 </div>
 
 **CRUD - READ**
@@ -153,7 +152,7 @@ When trying to log in, a check is made if the user is registered on the platform
 
 ### Agent Profile
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/profile.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/profile.png" target="_blank" rel="noopener" width="500" alt="Swift Estates">
 </div>
 
 After logging into the system, the agent can access its profile screen.
@@ -161,7 +160,7 @@ There are four buttons, which are a link to view your registered ads, password c
 
 #### Update Photo
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/update_photo.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/update_photo.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
 
 **CRUD - UPDATE**
@@ -170,7 +169,7 @@ Two buttons will also be displayed, one to update and the other to cancel.
 
 #### Update Password
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/change_password.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/change_password.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
 
 **CRUD - UPDATE**
@@ -179,7 +178,7 @@ Two buttons will also be displayed, one for updating the password and one for ca
 
 #### Delete Account
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/delete_account.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/delete_account.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
 
 **CRUD - DELETE**
@@ -188,7 +187,7 @@ Two buttons will also be displayed, one to confirm and one to cancel.
 
 ### Listing ads
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/property_list.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/property_list.png" target="_blank" rel="noopener" width="600" alt="Swift Estates">
 </div>
 
 **CRUD - READ**
@@ -199,7 +198,7 @@ Both listings offer a display filter, where you can filter ads by type of deal. 
 
 ### Add a new property
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/add_new_property.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/add_new_property.png" target="_blank" rel="noopener" height="400" alt="Swift Estates">
 </div>
 
 **CRUD - CREATE**
@@ -209,7 +208,7 @@ Two buttons will be displayed, one to add and one to cancel if the agent has cha
 
 ### Update a property
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/edit_property.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/edit_property.png" target="_blank" rel="noopener" height="400" alt="Swift Estates">
 </div>
 
 **CRUD - UPDATE**
@@ -220,7 +219,7 @@ When clicked on update, the new data will be updated in the database.
 
 ### Delete a property
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/own_ads.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/own_ads.png" target="_blank" width="400" rel="noopener" alt="Swift Estates">
 </div>
 
 **CRUD - DELETE**
@@ -230,7 +229,7 @@ In this case, the agent will be able to permanently delete an ad if necessary.
 ### Property Details
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/property_details.png" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/property_details.png" target="_blank" rel="noopener" width="400" alt="Swift Estates">
 </div>
 
 **CRUD - READ**
@@ -239,7 +238,7 @@ If the logged-in agent is the owner of the ad, he will be able to view the edit 
 
 ### Error Page
 <div align="center">
-<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/error.jpg" target="_blank" rel="noopener" alt="Swift Estates">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/error.png" target="_blank" width="450" rel="noopener" alt="Swift Estates">
 </div>
 
 A 404 error page will be displayed if the user tries to access any page that does not exist in the app.
