@@ -11,7 +11,7 @@ It is also possible for the agent to manage their profile on the platform, such 
 
 ## Table of Contents
 
-1.  [**UX**](#ux)
+1. [**UX**](#ux)
     - [**User Stories**](#user-stories)
     - [**Design**](#design)
       - [**Typography**](#typography)
@@ -19,19 +19,58 @@ It is also possible for the agent to manage their profile on the platform, such 
       - [**Icons**](#icons)
     - [**Wireframes**](#wireframes)
 
-2.  [**Features**](#features)
-  - [**Existing Features**](#existing-features)
-  - [**Features Left to Implement**](#features-left-to-implement)
+- [UX](#ux)
+  - [User Stories](#user-stories)
+    - [As a user of this platform, I will be able to:](#as-a-user-of-this-platform-i-will-be-able-to)
+  - [Design](#design)
+    - [Typography](#typography)
+    - [Colours](#colours)
+    - [Icons](#icons)
+  - [Wireframes](#wireframes)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+    - [Base](#base)
+    - [Register a new agent](#register-a-new-agent)
+    - [Agent Login](#agent-login)
+    - [Agent Profile](#agent-profile)
+      - [Update Photo](#update-photo)
+      - [Update Password](#update-password)
+      - [Delete Account](#delete-account)
+    - [Listing ads](#listing-ads)
+    - [Add a new property](#add-a-new-property)
+    - [Update a property](#update-a-property)
+    - [Delete a property](#delete-a-property)
+    - [My ads](#my-ads)
+    - [Error Page](#error-page)
+  - [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  - [Tools](#tools)
+  - [Libraries](#libraries)
+  - [Languages](#languages)
+- [Testing](#testing)
+    - [Tools used for testing](#tools-used-for-testing)
+      - [Validators](#validators)
+      - [Responsiveness](#responsiveness)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+      - [Instructions](#instructions)
+  - [Remote Deployment](#remote-deployment)
+      - [Instructions](#instructions-1)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+      - [Images](#images)
+    - [Code](#code)
+  - [Acknowledgements](#acknowledgements)
 
 3. [**Technologies Used**](#technologies-used)
-  - [**Tools**](#tools)
-  - [**Libraries**](#libraries)
+     - [**Tools**](#tools)
+     - [**Libraries**](#libraries)
+     - [**Languages**](#languages)
 
 4. [**Testing**](#testing)
-
     - [**Validators**](#validators)
-    - [**Compatibility**](#compatibility)
-    - [**Known Issues**](#known-issues)
+    - [**Responsiveness**](#responsiveness)
 
 5. [**Deployment**](#deployment)
     - [**Local Deployment**](#local-deployment)
@@ -98,6 +137,72 @@ These wireframes were designed with Balsamiq Mockups 3. These were the first ver
 
 ## Existing Features
 
+### Base
+
+All pages have the navigation bar with the logo and all visible links and footer.
+
+* **Unregistered user**
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/visitor.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+If the access is made by an unregistered user it will be able to view the main page with both carousels with the latest ads registered for sale and for rent. this visitor can also access the link to view all ads registered on the platform.
+The user registration and login link will also be visible to the visitor.
+
+* **Registered user**
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/logged_user.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+A logged-in agent will have access links to add a new property, my ads, profile and a logout button available.
+
+### Register a new agent
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/register.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+
+When accessing the registration screen, the agent has to choose the username and password for the platform.
+Some checks are made on the database before the new inclusion, as if the username already exists in the database, if so, an error message is displayed.
+It is also necessary that the username and password have more than 5 alphanumeric characters.
+
+### Agent Login
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/login.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+### Agent Profile
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/profile.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+#### Update Photo
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/update_photo.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+#### Update Password
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/change_password.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+#### Delete Account
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/delete_account.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+### Listing ads
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/property_list.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+### Add a new property
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/add_new_property.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+### Update a property
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/edit_property.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
+### Delete a property
+
+### My ads
+
+### Error Page
+<div align="center">
+<img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/error.png" target="_blank" rel="noopener" alt="Swift Estates">
+</div>
 ## Features Left to Implement
 
 # Technologies Used
@@ -164,9 +269,9 @@ Tests to add new ads since all fields in the forms also responded well to the ve
 The request tests the data for a specific ad so that changes are made and sent back to the database also work smoothly.
 All error or confirmation flash messages are also running smoothly.
 
-### Tools
+### Tools used for testing
 
-#### Code Validation
+#### Validators
 - HTML
 
   - [The W3C Markup Validation Service](https://validator.w3.org/)
@@ -312,7 +417,8 @@ To deploy this app to Heroku you need to follow the steps below:
 # Credits
 
 ## Content
-All text in this project was written by me.
+Most of the texts of this project were written by me.
+Only the description of the properties in the ads was copied from other estate ads **for example only**.
 
 ## Media
 #### Images
