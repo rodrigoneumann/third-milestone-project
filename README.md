@@ -317,6 +317,10 @@ Tests to add new ads since all fields in the forms also responded well to the ve
 The request tests the data for a specific ad so that changes are made and sent back to the database also work smoothly.
 All error or confirmation flash messages are also running smoothly.
 
+If you want to test a user with several properties registered for testing:
+Login: manoela
+Password: 12345
+
 ### Tools used for testing
 
 #### Validators
