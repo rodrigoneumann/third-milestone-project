@@ -247,12 +247,12 @@ git clone https://github.com/rodrigoneumann/third-milestone-project
 
 - Within the chosen directory, create a virtual environment with the command:
 ```
-python -m .venv venv
+python3 -m venv venv
 ```  
 
 - Activate the virtual environment with the command:
 ```
-venv\Scripts\activate 
+venv\bin\activate 
 ```
 
 - Install all required modules with the command: 
@@ -262,7 +262,7 @@ pip install -r requirements.txt
 
 - Create a file called `.flaskenv` if not exists.
 
-- Inside the .flaskenv file check for the following commands:
+- Inside the .flaskenv file check for the following entries:
 ```
 FLASK_ENV=development
 FLASK_APP=app.py
