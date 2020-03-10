@@ -24,8 +24,11 @@ It is also possible for the agent to manage their profile on the platform, such 
   - [**Features Left to Implement**](#features-left-to-implement)
 
 3. [**Technologies Used**](#technologies-used)
+  - [**Tools**](#tools)
+  - [**Libraries**](#libraries)
 
 4. [**Testing**](#testing)
+
     - [**Validators**](#validators)
     - [**Compatibility**](#compatibility)
     - [**Known Issues**](#known-issues)
@@ -61,8 +64,8 @@ It is also possible for the agent to manage their profile on the platform, such 
 
 ## Design
 This project was developed with a focus on a mobile approach first. However, with full responsiveness on other screen sizes.
-I used the grids, nav, carousel and bootstrap colors in this project.
-The main idea for the design of this project was to have a serious and professional appearance at the same time, with light colors, a box with rounded corners and soft shadows, which convey sophistication and provide a pleasant user experience.
+I used the grids, nav, carousel and bootstrap colours in this project.
+The main idea for the design of this project was to have a serious and professional appearance at the same time, with a light colour, a box with rounded corners and soft shadows, which convey sophistication and provide a pleasant user experience.
 
 ### Typography
 
@@ -72,12 +75,12 @@ The main idea for the design of this project was to have a serious and professio
 
 ### Colours
 
-- In the color scheme I used shades that favored the easy visualization of the information.
-- In the navbar and footer I used the white background with letters in a dark gray tone, giving a greater contrast for logo information and menu options. As well as a light shadow in the division with the Body.
-- In the background I used an image of the wooden floor with a slight change in opacity to make it a little lighter.
-- In the boxes for adding and editing properties, login and user registration, a title with a dark gray background with white letters was used to give greater contrast.
+- In the colour scheme, I used shades that favoured the easy visualization of the information.
+- In the navbar and footer, I used the white background with letters in a dark grey tone, giving a greater contrast for logo information and menu options. As well as a light shadow in the division with the Body.
+- In the background, I used an image of the wooden floor with a slight change in opacity to make it a little lighter.
+- In the boxes for adding and editing properties, login and user registration, a title with a dark grey background with white letters was used to give greater contrast.
 - The buttons have a dark tone with white letters and black borders, making an interesting effect.
-- Some images with white dolls were used in the user's standard photo and when the user has not yet included any ad.
+- Some images with white dolls were used in the user's standard photo and when the user has not yet included an ad.
 
 ### Icons
 
@@ -121,7 +124,8 @@ These wireframes were designed with Balsamiq Mockups 3. These were the first ver
       -  Used to compress the size of images.
   - [Imgbb](https://imgbb.com) 
       - used to store some external images for this project.
-  - [Am I Responsive](http://ami.responsivedesign.is/) to get images for the README in different screen sizes. 
+  - [Am I Responsive](http://ami.responsivedesign.is/)
+      - Used to get images for the README in different screen sizes. 
   
 ## Libraries
 
@@ -160,7 +164,7 @@ Tests to add new ads since all fields in the forms also responded well to the ve
 The request tests the data for a specific ad so that changes are made and sent back to the database also work smoothly.
 All error or confirmation flash messages are also running smoothly.
 
-### Tools used for testing
+### Tools
 
 #### Code Validation
 - HTML
@@ -176,7 +180,7 @@ All error or confirmation flash messages are also running smoothly.
   - [JS Hint](https://jshint.com/)
 
 - Python
-  - [PEP8](http://pep8online.com/) - The Python scripts was checked with pep8online. almost all the errors were solved, the only ones that persisted were of lines longer than 79 characters in some cases, however in most cases they are in mongoDB query lines.
+  - [PEP8](http://pep8online.com/) - The Python scripts were checked with pep8online. almost all the errors were solved, the only ones that persisted were of lines longer than 79 characters in some cases, however, in most cases they are in MongoDB query lines.
 
 #### Responsiveness
 
@@ -226,9 +230,6 @@ All error or confirmation flash messages are also running smoothly.
 
 # Deployment
 
-## Local Deployment
-To run this project on your own systen please follow the instructions below:
-
 You will need the following tools installed on your system:
 
 - [Python 3](https://www.python.org/downloads/)
@@ -236,10 +237,13 @@ You will need the following tools installed on your system:
 - An account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) 
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 
+## Local Deployment
+The following instructions are based on use on a Windows 10 OS and IDE VS Code. If your OS is different, the commands may be different, but the process, in general, remains the same.
 
 #### Instructions
-- Save a copy of the github repository located at https://github.com/rodrigoneumann/third-milestone-project.
-  - Unzip the repo into the choosen folder.
+
+- Save a copy of the Github repository located at https://github.com/rodrigoneumann/third-milestone-project.
+  - Unzip the repo into the chosen folder.
 - If you have Git installed on your system, you can clone the repository with the following command.
 ```
 git clone https://github.com/rodrigoneumann/third-milestone-project
@@ -247,12 +251,12 @@ git clone https://github.com/rodrigoneumann/third-milestone-project
 
 - Within the chosen directory, create a virtual environment with the command:
 ```
-python3 -m venv venv
+python -m venv venv
 ```  
 
 - Activate the virtual environment with the command:
 ```
-venv\bin\activate 
+.\venv\bin\activate 
 ```
 
 - Install all required modules with the command: 
@@ -262,32 +266,74 @@ pip install -r requirements.txt
 
 - Create a file called `.flaskenv` if not exists.
 
-- Inside the .flaskenv file check for the following entries:
+- Inside the `.flaskenv` file check for the following entries:
 ```
 FLASK_ENV=development
 FLASK_APP=app.py
 ```
 
-- Create a database in Mongodb Atlas called **semgmtapp**
-- Create 2 collections, one of then called **users** and another called **properties**
-
-- Create an .env file with your credentials:
+- Create a `.env` file with your credentials:
 e.g
 ```
-MONGO_URI="insert your mongo uri details here"
+MONGO_URI="insert your mongo URI details here"
 SECRET_KEY="insert your secret key here"
 ```
 
+- Create a database in MongoDB Atlas called **semgmtapp** with a collection called **users**
+
 - Run the application with the command
 ```
-python app.py
+flask run
 ```
 - Open the website at `http://127.0.0.1:5000`
 
 ## Remote Deployment
 
+#### Instructions
+To deploy this app to Heroku you need to follow the steps below:
+
+- Create a **requirements.txt** file so that Heroku can install all the dependencies required to run the app.
+  `pip freeze > requirements.txt`
+
+- Create a **Procfile** with the command:
+  `echo web: python app.py > Procfile`
+
+- In this step, you have to create a free account on the [Heroku website](https://signup.heroku.com/).
+-  Login to the account, click on new and then create a new app. In the following screen, you need to give a name and choose the Europe region.
+-  In the menu access the **Deploy** option, after that click on Connect to Github. Just below provide the information from the app's repository on GitHub and select the option Enable Automatic Deploy.
+- On the Dashboard of the APP, click on Settings and then click on the option **Reveal config Vars**.
+- Now you need to add the following variables to **Reveal config Vars**:
+  - **IP**: `0.0.0.0`
+  - **PORT**: `5000`
+  - **MONGO_URI**: `link to your Mongo DB`
+  - **SECRET_KEY**: `your chosen secret key`
+- You are now ready to access the deployed app on Heroku.
+
 # Credits
 
 ## Content
+All text in this project was written by me.
+
+## Media
+#### Images
+The logo vector was inspired in this [Logo](http://www.eatlogos.com/building_logos/building_free_logos_download.php?eatlogos=vector_construction_house_logo&le_id=432) and changed for my needs.
+- The images in this project were sourced from [Pixabay](http://www.pixabay.com):
+  - **House** and **building** images for the banner was sourced from [rachelmatthews7](https://pixabay.com/pt/users/rachelmatthews7-1955936/) profile.
+  - **House Icon** for the favicon was sourced from [Clker-Free-Vector-Images](https://pixabay.com/pt/vectors/casa-home-s%C3%ADmbolo-em-branco-305683/) profile.
+  - The **white** character on the My_ads when there are no ads in profile and no photo in profile was sourced from [Peggy_Marco](https://pixabay.com/pt/users/peggy_marco-1553824/) profile.
+  - **No photo** ad image was sourced from: [OpenClipart-Vectors](https://pixabay.com/vectors/house-home-real-estate-architecture-2026116/) profile
+  - The "wood floor" used in background image was sourced from [Pexels](https://pixabay.com/photos/floor-wood-parquet-wooden-brown-1846849/) profile.
+  - The **Red house Icon** used in the carousel when no ads were sourced from [OpenClipart-Vectors](https://pixabay.com/vectors/real-estate-estate-home-house-155524/) profile.
+  - The main **banner image* for the README was sourced by [www.pixeden.com](https://www.pixeden.com/free-design-web-resources).
+- Images for the **properties** that were added by me was sourced by Pixabay as well, but other users can provide different sources for its ads.
+
+### Code
+- The code for the carousel on the main page was used directly from the [Bootstrap](https://getbootstrap.com/docs/4.0/components/carousel/) library.
+- Flask architecture design based on blueprints learned and understanding ideas from here. [CodeShow](https://www.youtube.com/watch?v=-qWySnuoaTM&t=5706s) 
+- The code for adding the correct prefixes to CSS was created using [AutoPrefixer](https://autoprefixer.github.io/).
 
 ## Acknowledgements
+Very Special Thanks to:
+- My mentor in Code Institute **Sandeep Aggarwal** who had all the patience to explain and make me understand certain concepts and peculiarities of the project content.
+- All people, including family, friends, and colleagues who have tested the platform on their real devices, reporting to me about any usability issues and giving improvement tips to improve the usability.
+- To all of the Code Institute Slack community for the help in my issues and review to my project code.
