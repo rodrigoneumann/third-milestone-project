@@ -158,7 +158,7 @@ When trying to log in, a check is made if the user is registered on the platform
 After logging into the system, the agent can access its profile screen.
 There are four buttons, which are a link to view your registered ads, password change, photo change and a button to delete the user account.
 
-#### Update Photo
+### Update Photo
 <div align="center">
 <img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/update_photo.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
@@ -167,7 +167,7 @@ There are four buttons, which are a link to view your registered ads, password c
 When clicking on the photo change option, a new modal is presented on the screen requesting the link where the photo you wanted to use is hosted.
 Two buttons will also be displayed, one to update and the other to cancel.
 
-#### Update Password
+### Update Password
 <div align="center">
 <img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/change_password.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
@@ -176,7 +176,7 @@ Two buttons will also be displayed, one to update and the other to cancel.
 When clicking on the password change option, a new modal is presented on the screen requesting the new password that the user would like to use.
 Two buttons will also be displayed, one for updating the password and one for cancelling.
 
-#### Delete Account
+### Delete Account
 <div align="center">
 <img src="https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/static/img/Readme/delete_account.png" target="_blank" rel="noopener" width="450" alt="Swift Estates">
 </div>
