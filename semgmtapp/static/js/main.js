@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    /* ADD PROPERTY TYPE SELECTION BUTTON RENT OR BUY */
     $('.for-rent-div').hide();
 
     $("#toBuy-tab").click(function () {
@@ -10,8 +11,14 @@ $(document).ready(function () {
         $('.for-sale-div').hide();
         $('.for-rent-div').show();
     });
+    /* ---------------- */
+    /* Property Go back button */
+    function goBack() {
+        window.history.back();
+    }
+    /*  -------  */
 
-
+    /* Dropdown sort Type selection */
     $('#sort_by').change(function () {
         const selection = this.options[this.selectedIndex].value;
         document.location.href = `/properties_list?search=${selection}`;
@@ -21,6 +28,7 @@ $(document).ready(function () {
         const selection = this.options[this.selectedIndex].value;
         document.location.href = `/my_ads?search2=${selection}`;
     });
+    /* ---------------- */
 
     /* Modals in Agent Profile */
     $('#myModal').on('shown.bs.modal', function () {
